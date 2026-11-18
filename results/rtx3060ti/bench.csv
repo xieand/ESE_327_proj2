@@ -1,0 +1,238 @@
+dataset,records,attributes,classes,config,algorithm,device,split,folds,accuracy,accuracy_std,macro_f1,train_ms,predict_ms,read_ms,peak_host_mb,peak_device_mb,tree_nodes,tree_leaves,tree_depth,iterations,converged,options,device_name
+votes,435,16,2,dtree_gain,dtree,cpu,kfold,10,0.931078,0.041697,0.928021,0.065,0.001,0.407,6.25,0.0,65.8,44.2,7.4,,,measure=gain max_bins=256,
+votes,435,16,2,dtree_gain,dtree,gpu,kfold,10,0.931078,0.041697,0.928021,2.423,0.502,0.441,116.87,0.04,65.8,44.2,7.4,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.942442,0.042516,0.940076,0.064,0.001,0.399,6.3,0.0,17.5,12,4.1,,,measure=gain max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.942442,0.042516,0.940076,2.474,0.507,0.467,116.86,0.04,17.5,12,4.1,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.942548,0.037934,0.939838,0.068,0.001,0.375,6.25,0.0,71.2,47.8,8.3,,,measure=gain_ratio max_bins=256,
+votes,435,16,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.942548,0.037934,0.939838,2.403,0.459,0.45,116.86,0.04,71.2,47.8,8.3,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.951638,0.038613,0.949664,0.07,0.001,0.472,6.3,0.0,18.4,12.6,4.2,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.951638,0.038613,0.949664,2.478,0.425,0.445,116.88,0.04,18.4,12.6,4.2,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,dtree_gini,dtree,cpu,kfold,10,0.942442,0.04258,0.939456,0.089,0.001,0.404,6.24,0.0,48.4,24.7,8.8,,,measure=gini max_bins=256,
+votes,435,16,2,dtree_gini,dtree,gpu,kfold,10,0.942442,0.04258,0.939456,3.358,0.536,0.459,116.88,0.04,48.4,24.7,8.8,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.949366,0.037448,0.947003,0.1,0.001,0.421,6.3,0.0,14.8,7.9,4.5,,,measure=gini max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.949366,0.037448,0.947003,3.131,0.483,0.477,116.88,0.04,14.8,7.9,4.5,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,nbayes,nbayes,cpu,kfold,10,0.901216,0.041839,0.897321,0.008,0.002,0.392,6.23,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+votes,435,16,2,nbayes,nbayes,gpu,kfold,10,0.901216,0.041839,0.897321,0.618,0.474,0.452,116.23,0.03,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,knn,knn,cpu,kfold,10,0.924154,0.024494,0.9212,0.017,0.063,0.379,6.22,0.0,,,,,,k=5,
+votes,435,16,2,knn,knn,gpu,kfold,10,0.924154,0.024494,0.9212,0.308,0.897,0.411,116.14,0.03,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+votes,435,16,2,logreg,logreg,cpu,kfold,10,0.963214,0.024721,0.961294,1.044,0.004,0.386,6.29,0.0,,,,21.8,1,C=1 max_iter=100 tol=0.0001,
+votes,435,16,2,logreg,logreg,gpu,kfold,10,0.963214,0.024721,0.961294,3.304,0.467,0.451,116.41,0.08,,,,21.8,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gain,dtree,cpu,kfold,10,0.862182,0.022643,0.847232,0.191,0.003,0.446,6.3,0.0,335.2,223.8,7,,,measure=gain max_bins=256,
+tictactoe,958,9,2,dtree_gain,dtree,gpu,kfold,10,0.862182,0.022643,0.847232,2.598,0.491,0.49,116.96,0.1,335.2,223.8,7,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.856941,0.031457,0.838907,0.173,0.003,0.455,6.37,0.0,170.5,114,7,,,measure=gain max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.856941,0.031457,0.838907,2.568,0.5,0.492,116.96,0.1,170.5,114,7,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.869452,0.024205,0.855645,0.173,0.003,0.445,6.3,0.0,327.7,218.8,7,,,measure=gain_ratio max_bins=256,
+tictactoe,958,9,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.869452,0.024205,0.855645,2.731,0.482,0.531,116.96,0.1,327.7,218.8,7,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.856919,0.032737,0.83941,0.175,0.003,0.435,6.35,0.0,178.3,119.2,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.856919,0.032737,0.83941,2.48,0.489,0.503,116.96,0.1,178.3,119.2,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gini,dtree,cpu,kfold,10,0.942555,0.026746,0.936575,0.173,0.005,0.479,6.31,0.0,134.2,67.6,11.8,,,measure=gini max_bins=256,
+tictactoe,958,9,2,dtree_gini,dtree,gpu,kfold,10,0.942555,0.026746,0.936575,4.003,0.542,0.505,116.95,0.07,134.2,67.6,11.8,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.945702,0.025084,0.939731,0.197,0.004,0.63,6.34,0.0,89.6,45.3,8.1,,,measure=gini max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.945702,0.025084,0.939731,4.001,0.5,0.5,116.96,0.07,89.6,45.3,8.1,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,nbayes,nbayes,cpu,kfold,10,0.695077,0.05642,0.633147,0.012,0.002,0.424,6.25,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+tictactoe,958,9,2,nbayes,nbayes,gpu,kfold,10,0.695077,0.05642,0.633147,0.77,0.565,0.563,116.26,0.03,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,knn,knn,cpu,kfold,10,0.985395,0.011189,0.983702,0.024,0.192,0.43,6.27,0.0,,,,,,k=5,
+tictactoe,958,9,2,knn,knn,gpu,kfold,10,0.985395,0.011189,0.983702,0.471,0.873,0.475,116.18,0.04,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+tictactoe,958,9,2,logreg,logreg,cpu,kfold,10,0.983311,0.010048,0.981345,2.129,0.008,0.547,6.32,0.0,,,,23.6,1,C=1 max_iter=100 tol=0.0001,
+tictactoe,958,9,2,logreg,logreg,gpu,kfold,10,0.983311,0.010048,0.981345,3.664,0.473,0.529,116.41,0.11,,,,23.6,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gain,dtree,cpu,kfold,10,0.912226,0.016719,0.903352,1.972,0.011,5.225,8.89,0.0,657.7,520.3,8.7,,,measure=gain max_bins=256,
+splice,3190,60,3,dtree_gain,dtree,gpu,kfold,10,0.912226,0.016719,0.903352,3.434,0.462,4.546,118.81,1.04,657.7,520.3,8.7,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gain_pruned,dtree,cpu,kfold,10,0.936991,0.012836,0.93039,2.004,0.007,5.194,8.95,0.0,222.6,178.1,7.4,,,measure=gain max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gain_pruned,dtree,gpu,kfold,10,0.936991,0.012836,0.93039,3.292,0.492,4.478,118.8,1.04,222.6,178.1,7.4,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gain_ratio,dtree,cpu,kfold,10,0.917868,0.014081,0.910131,2.144,0.012,5.42,8.9,0.0,698.1,553.9,9.7,,,measure=gain_ratio max_bins=256,
+splice,3190,60,3,dtree_gain_ratio,dtree,gpu,kfold,10,0.917868,0.014081,0.910131,3.607,0.477,4.352,118.8,1.04,698.1,553.9,9.7,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.941066,0.010217,0.935013,2.091,0.009,5.484,8.95,0.0,285.2,228.1,8.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.941066,0.010217,0.935013,3.536,0.459,4.388,118.79,1.04,285.2,228.1,8.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gini,dtree,cpu,kfold,10,0.927586,0.010072,0.919287,3.23,0.02,5.347,8.85,0.0,251.4,126.2,12.1,,,measure=gini max_bins=256,
+splice,3190,60,3,dtree_gini,dtree,gpu,kfold,10,0.927586,0.010072,0.919287,4.928,0.502,4.431,118.75,1.04,251.4,126.2,12.1,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,dtree_gini_pruned,dtree,cpu,kfold,10,0.940439,0.010344,0.93286,3.271,0.014,5.238,8.91,0.0,147.6,74.3,11,,,measure=gini max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gini_pruned,dtree,gpu,kfold,10,0.940439,0.010344,0.93286,5.287,0.536,4.392,118.8,1.04,147.6,74.3,11,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,nbayes,nbayes,cpu,kfold,10,0.953918,0.010964,0.949084,0.167,0.045,5.715,8.42,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+splice,3190,60,3,nbayes,nbayes,gpu,kfold,10,0.953918,0.010964,0.949084,0.86,0.602,4.632,118.08,0.67,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,knn,knn,cpu,kfold,10,0.797806,0.009139,0.798058,0.361,5.907,5.316,9.86,0.0,,,,,,k=5,
+splice,3190,60,3,knn,knn,gpu,kfold,10,0.797806,0.009139,0.798058,1.602,4.934,4.35,119.36,0.78,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+splice,3190,60,3,logreg,logreg,cpu,kfold,10,0.945768,0.008749,0.93951,42.329,0.131,5.679,9.93,0.0,,,,46.3,1,C=1 max_iter=100 tol=0.0001,
+splice,3190,60,3,logreg,logreg,gpu,kfold,10,0.945768,0.008749,0.93951,12.093,0.698,4.604,120.44,2.11,,,,46.3,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gain,dtree,cpu,kfold,10,0.997182,0.003115,0.997178,1.048,0.009,2.394,7.74,0.0,93.4,48.2,14.6,,,measure=gain max_bins=256,
+chess,3196,36,2,dtree_gain,dtree,gpu,kfold,10,0.997182,0.003115,0.997178,3.656,0.471,2.758,118.05,0.65,93.4,48.2,14.6,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.996244,0.003235,0.996238,1.011,0.008,2.4,7.8,0.0,63,33,13.2,,,measure=gain max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.996244,0.003235,0.996238,3.812,0.495,2.885,118.12,0.65,63,33,13.2,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.996868,0.003302,0.996864,1.072,0.01,2.407,7.74,0.0,90.6,46.8,15.6,,,measure=gain_ratio max_bins=256,
+chess,3196,36,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.996868,0.003302,0.996864,3.712,0.451,2.795,118.08,0.65,90.6,46.8,15.6,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.995931,0.003633,0.995925,1.089,0.009,2.277,7.8,0.0,59.4,31.2,13,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.995931,0.003633,0.995925,3.698,0.496,2.817,118.08,0.65,59.4,31.2,13,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gini,dtree,cpu,kfold,10,0.996555,0.003448,0.996551,1.253,0.015,2.552,7.74,0.0,101.4,51.2,14.6,,,measure=gini max_bins=256,
+chess,3196,36,2,dtree_gini,dtree,gpu,kfold,10,0.996555,0.003448,0.996551,4.702,0.517,2.77,118.06,0.65,101.4,51.2,14.6,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.994053,0.003751,0.994045,1.231,0.013,2.354,7.79,0.0,59,30,13,,,measure=gini max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.994053,0.003751,0.994045,4.224,0.511,3.205,118.1,0.65,59,30,13,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,nbayes,nbayes,cpu,kfold,10,0.877014,0.026853,0.876611,0.181,0.023,2.584,7.49,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+chess,3196,36,2,nbayes,nbayes,gpu,kfold,10,0.877014,0.026853,0.876611,0.72,0.49,2.927,117.41,0.41,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,knn,knn,cpu,kfold,10,0.962763,0.01186,0.9626,0.267,4.076,2.608,8.34,0.0,,,,,,k=5,
+chess,3196,36,2,knn,knn,gpu,kfold,10,0.962763,0.01186,0.9626,1.037,2.741,2.723,118.26,0.49,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+chess,3196,36,2,logreg,logreg,cpu,kfold,10,0.969342,0.00637,0.969286,28.334,0.075,2.522,8.34,0.0,,,,45,1,C=1 max_iter=100 tol=0.0001,
+chess,3196,36,2,logreg,logreg,gpu,kfold,10,0.969342,0.00637,0.969286,9.104,0.628,2.833,118.78,1.27,,,,45,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gain,dtree,cpu,kfold,10,1.0,0.0,1.0,0.677,0.01,4.391,8.44,0.0,38,33,4,,,measure=gain max_bins=256,
+mushroom,8124,22,2,dtree_gain,dtree,gpu,kfold,10,1.0,0.0,1.0,1.831,0.462,4.537,118.75,1.06,38,33,4,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gain_pruned,dtree,cpu,kfold,10,1.0,0.0,1.0,0.683,0.007,4.718,8.48,0.0,38,33,4,,,measure=gain max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gain_pruned,dtree,gpu,kfold,10,1.0,0.0,1.0,1.718,0.431,4.515,118.77,1.06,38,33,4,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gain_ratio,dtree,cpu,kfold,10,1.0,0.0,1.0,0.64,0.008,4.537,8.43,0.0,29,23.8,5,,,measure=gain_ratio max_bins=256,
+mushroom,8124,22,2,dtree_gain_ratio,dtree,gpu,kfold,10,1.0,0.0,1.0,1.878,0.452,4.547,118.77,1.06,29,23.8,5,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,1.0,0.0,1.0,0.633,0.008,4.135,8.49,0.0,29,23.8,5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,1.0,0.0,1.0,2.069,0.464,4.438,118.82,1.06,29,23.8,5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gini,dtree,cpu,kfold,10,1.0,0.0,1.0,1.419,0.021,4.239,8.43,0.0,18.8,9.9,7.9,,,measure=gini max_bins=256,
+mushroom,8124,22,2,dtree_gini,dtree,gpu,kfold,10,1.0,0.0,1.0,3.2,0.515,4.526,118.84,1.06,18.8,9.9,7.9,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.999631,0.000595,0.99963,1.486,0.019,4.306,8.48,0.0,17.6,9.3,7.3,,,measure=gini max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.999631,0.000595,0.99963,2.968,0.493,4.53,118.86,1.06,17.6,9.3,7.3,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,nbayes,nbayes,cpu,kfold,10,0.954578,0.006475,0.954317,0.235,0.04,4.532,8.0,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+mushroom,8124,22,2,nbayes,nbayes,gpu,kfold,10,0.954578,0.006475,0.954317,0.867,0.621,4.78,117.97,0.64,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,knn,knn,cpu,kfold,10,1.0,0.0,1.0,0.367,18.229,4.028,9.4,0.0,,,,,,k=5,
+mushroom,8124,22,2,knn,knn,gpu,kfold,10,1.0,0.0,1.0,1.48,2.432,4.664,119.04,0.95,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+mushroom,8124,22,2,logreg,logreg,cpu,kfold,10,1.0,0.0,1.0,22.163,0.134,4.166,9.33,0.0,,,,22,1,C=1 max_iter=100 tol=0.0001,
+mushroom,8124,22,2,logreg,logreg,gpu,kfold,10,1.0,0.0,1.0,5.919,0.559,4.611,120.01,2.05,,,,22,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gain,dtree,cpu,kfold,10,0.988503,0.003421,0.769693,1.082,0.039,5.268,8.87,0.0,1139.7,824.5,8,,,measure=gain max_bins=256,
+nursery,12960,8,5,dtree_gain,dtree,gpu,kfold,10,0.988503,0.003421,0.769693,2.968,0.484,7.894,118.56,0.81,1139.7,824.5,8,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gain_pruned,dtree,cpu,kfold,10,0.97037,0.0061,0.734225,1.083,0.033,4.778,8.91,0.0,507.5,356.3,7,,,measure=gain max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gain_pruned,dtree,gpu,kfold,10,0.97037,0.0061,0.734225,3.207,0.487,8.219,118.54,0.81,507.5,356.3,7,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gain_ratio,dtree,cpu,kfold,10,0.988426,0.002698,0.769645,1.086,0.04,5.126,8.86,0.0,1139.2,824.4,8,,,measure=gain_ratio max_bins=256,
+nursery,12960,8,5,dtree_gain_ratio,dtree,gpu,kfold,10,0.988426,0.002698,0.769645,2.937,0.504,7.558,118.5,0.81,1139.2,824.4,8,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.970756,0.006015,0.734464,1.084,0.033,5.017,8.96,0.0,506.4,355.5,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.970756,0.006015,0.734464,3.053,0.459,7.828,118.5,0.81,506.4,355.5,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gini,dtree,cpu,kfold,10,0.998611,0.001079,0.998574,1.331,0.07,4.936,8.9,0.0,397,199,13.1,,,measure=gini max_bins=256,
+nursery,12960,8,5,dtree_gini,dtree,gpu,kfold,10,0.998611,0.001079,0.998574,5.041,0.551,8.023,118.49,0.76,397,199,13.1,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,dtree_gini_pruned,dtree,cpu,kfold,10,0.994985,0.001511,0.793839,1.373,0.066,4.936,8.89,0.0,324.6,162.8,12.9,,,measure=gini max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gini_pruned,dtree,gpu,kfold,10,0.994985,0.001511,0.793839,4.886,0.599,8.245,118.49,0.76,324.6,162.8,12.9,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,nbayes,nbayes,cpu,kfold,10,0.902006,0.006547,0.566178,0.101,0.029,4.811,8.87,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+nursery,12960,8,5,nbayes,nbayes,gpu,kfold,10,0.902006,0.006547,0.566178,0.707,0.481,7.813,117.57,0.4,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,knn,knn,cpu,kfold,10,0.980556,0.003466,0.707216,0.23,23.086,5.065,8.93,0.0,,,,,,k=5,
+nursery,12960,8,5,knn,knn,gpu,kfold,10,0.980556,0.003466,0.707216,0.845,1.972,7.591,118.19,1.04,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+nursery,12960,8,5,logreg,logreg,cpu,kfold,10,0.924923,0.003452,0.707873,122.068,0.063,4.988,8.86,0.0,,,,95.1,0.7,C=1 max_iter=100 tol=0.0001,
+nursery,12960,8,5,logreg,logreg,gpu,kfold,10,0.925,0.003829,0.708864,20.815,0.663,7.623,118.84,1.67,,,,96.4,0.6,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gain,dtree,cpu,kfold,10,0.8816,0.009933,0.881378,21.167,0.158,30.672,12.02,0.0,3919.2,1960.1,19.6,,,measure=gain max_bins=256,
+letter,20000,16,26,dtree_gain,dtree,gpu,kfold,10,0.8816,0.009933,0.881378,14.958,0.55,17.596,122.3,11.73,3919.2,1960.1,19.6,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gain_pruned,dtree,cpu,kfold,10,0.8828,0.009172,0.882582,21.323,0.162,29.969,12.07,0.0,3550.4,1775.7,19,,,measure=gain max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gain_pruned,dtree,gpu,kfold,10,0.8828,0.009172,0.882582,14.847,0.485,17.136,122.43,11.73,3550.4,1775.7,19,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gain_ratio,dtree,cpu,kfold,10,0.8754,0.006535,0.874951,23.042,0.202,30.393,12.03,0.0,3977,1989,26.9,,,measure=gain_ratio max_bins=256,
+letter,20000,16,26,dtree_gain_ratio,dtree,gpu,kfold,10,0.8754,0.006535,0.874951,17.314,0.582,17.277,122.33,10.15,3977,1989,26.9,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.87655,0.005413,0.876068,23.08,0.18,32.085,12.08,0.0,3441.4,1721.2,26.3,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.87655,0.005413,0.876068,16.692,0.538,17.193,122.34,10.15,3441.4,1721.2,26.3,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gini,dtree,cpu,kfold,10,0.8768,0.008973,0.87658,24.005,0.212,30.72,12.72,0.0,4189.8,2095.4,28.9,,,measure=gini max_bins=256,
+letter,20000,16,26,dtree_gini,dtree,gpu,kfold,10,0.8768,0.008973,0.87658,19.902,0.618,18.211,122.81,9.69,4189.8,2095.4,28.9,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,dtree_gini_pruned,dtree,cpu,kfold,10,0.87695,0.009296,0.876779,24.341,0.193,30.758,12.74,0.0,3690.4,1845.7,28.3,,,measure=gini max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gini_pruned,dtree,gpu,kfold,10,0.87695,0.009296,0.876779,19.396,0.58,17.776,122.85,9.69,3690.4,1845.7,28.3,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,nbayes,nbayes,cpu,kfold,10,0.64195,0.010281,0.637425,0.548,0.44,31.458,10.24,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+letter,20000,16,26,nbayes,nbayes,gpu,kfold,10,0.64195,0.010281,0.637425,1.655,0.967,17.698,120.45,1.63,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,knn,knn,cpu,kfold,10,0.95425,0.006969,0.954065,1.023,87.761,32.111,12.76,0.0,,,,,,k=5,
+letter,20000,16,26,knn,knn,gpu,kfold,10,0.95425,0.006969,0.954065,3.139,11.351,17.14,122.32,2.88,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+letter,20000,16,26,logreg,logreg,cpu,kfold,10,0.7731,0.008429,0.770767,478.683,0.374,30.79,12.41,0.0,,,,57.8,1,C=1 max_iter=100 tol=0.0001,
+letter,20000,16,26,logreg,logreg,gpu,kfold,10,0.7731,0.008429,0.770767,45.02,0.838,17.782,123.9,7.32,,,,57.8,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gain,dtree,cpu,kfold,10,0.727901,0.008225,0.682303,10.847,0.214,11.866,14.27,0.0,19067.8,10068.2,16.5,,,measure=gain max_bins=256,
+krkopt,28056,6,18,dtree_gain,dtree,gpu,kfold,10,0.727901,0.008225,0.682303,11.214,0.52,8.226,125.22,9.08,19067.8,10068.2,16.5,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gain_pruned,dtree,cpu,kfold,10,0.714214,0.006888,0.672025,11.482,0.2,10.28,13.94,0.0,11987.2,6388.7,15.7,,,measure=gain max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gain_pruned,dtree,gpu,kfold,10,0.714214,0.006888,0.672025,12.495,0.605,8.172,125.8,9.08,11987.2,6388.7,15.7,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gain_ratio,dtree,cpu,kfold,10,0.727295,0.007361,0.680429,10.209,0.211,10.574,14.04,0.0,19117.2,10413.6,17.1,,,measure=gain_ratio max_bins=256,
+krkopt,28056,6,18,dtree_gain_ratio,dtree,gpu,kfold,10,0.727295,0.007361,0.680429,11.998,0.547,8.012,125.55,11.67,19117.2,10413.6,17.1,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.712254,0.006491,0.668452,11.387,0.204,10.533,13.68,0.0,11880,6576.2,15.4,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.712254,0.006491,0.668452,13.146,0.59,8.511,125.71,11.67,11880,6576.2,15.4,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gini,dtree,cpu,kfold,10,0.820288,0.009272,0.830587,13.051,0.373,10.147,12.21,0.0,13748.8,6874.9,22.3,,,measure=gini max_bins=256,
+krkopt,28056,6,18,dtree_gini,dtree,gpu,kfold,10,0.820288,0.009272,0.830587,27.978,0.607,8.219,123.5,6.88,13748.8,6874.9,22.3,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,dtree_gini_pruned,dtree,cpu,kfold,10,0.805638,0.00936,0.82295,14.0,0.339,10.058,12.46,0.0,8591.8,4296.4,20.9,,,measure=gini max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gini_pruned,dtree,gpu,kfold,10,0.805638,0.00936,0.82295,27.545,0.622,8.031,123.98,6.88,8591.8,4296.4,20.9,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,nbayes,nbayes,cpu,kfold,10,0.246578,0.008264,0.24068,0.465,0.144,10.621,9.3,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+krkopt,28056,6,18,nbayes,nbayes,gpu,kfold,10,0.246578,0.008264,0.24068,1.456,0.53,8.481,119.12,0.76,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,knn,knn,cpu,kfold,10,0.576597,0.006063,0.491528,0.456,101.14,9.995,10.57,0.0,,,,,,k=5,
+krkopt,28056,6,18,knn,knn,gpu,kfold,10,0.576597,0.006063,0.491528,1.387,4.707,8.076,120.04,3.63,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+krkopt,28056,6,18,logreg,logreg,cpu,kfold,10,0.326846,0.006383,0.307125,647.988,0.166,10.612,10.46,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+krkopt,28056,6,18,logreg,logreg,gpu,kfold,10,0.326846,0.006383,0.307125,45.718,0.747,8.109,121.58,5.6,,,,100,0,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gain,dtree,cpu,kfold,10,0.817411,0.006357,0.744008,26.155,0.503,39.56,17.65,0.0,24628.3,17593,33,,,measure=gain max_bins=256,
+adult,48842,13,2,dtree_gain,dtree,gpu,kfold,10,0.817411,0.006357,0.744008,16.758,0.672,46.495,127.85,9.26,24628.3,17593,33,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.850886,0.00449,0.779421,27.527,0.162,39.718,17.86,0.0,3819.3,2931.9,23.6,,,measure=gain max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.850886,0.00449,0.779421,17.278,0.635,47.808,128.12,9.26,3819.3,2931.9,23.6,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.82298,0.004018,0.753072,34.409,0.714,47.334,18.04,0.0,26437.9,19647,41.6,,,measure=gain_ratio max_bins=256,
+adult,48842,13,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.82298,0.004018,0.753072,20.145,0.635,47.429,128.47,7.41,26437.9,19647,41.6,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.857807,0.003107,0.792234,32.619,0.289,39.658,18.16,0.0,3079.2,2261.1,34.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.857807,0.003107,0.792234,20.582,0.638,46.221,128.14,7.41,3079.2,2261.1,34.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gini,dtree,cpu,kfold,10,0.821793,0.006187,0.752167,42.8,0.991,41.895,16.97,0.0,14923.4,7462.2,43.6,,,measure=gini max_bins=256,
+adult,48842,13,2,dtree_gini,dtree,gpu,kfold,10,0.821793,0.006187,0.752167,25.918,0.639,48.49,126.95,7.96,14923.4,7462.2,43.6,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.857745,0.004812,0.793725,41.76,0.363,39.245,17.07,0.0,2370.8,1185.9,34.7,,,measure=gini max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.857745,0.004812,0.793725,25.925,0.659,46.885,126.96,7.96,2370.8,1185.9,34.7,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,nbayes,nbayes,cpu,kfold,10,0.832132,0.005065,0.744137,1.295,0.236,42.66,15.88,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+adult,48842,13,2,nbayes,nbayes,gpu,kfold,10,0.832132,0.005065,0.744137,1.946,0.526,47.089,124.15,2.38,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,knn,knn,cpu,kfold,10,0.827956,0.003269,0.749155,1.537,505.679,40.533,19.32,0.0,,,,,,k=5,
+adult,48842,13,2,knn,knn,gpu,kfold,10,0.827956,0.003269,0.749155,5.406,18.391,46.577,129.02,10.68,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+adult,48842,13,2,logreg,logreg,cpu,kfold,10,0.851972,0.002226,0.782454,382.144,0.454,41.306,18.52,0.0,,,,80.8,1,C=1 max_iter=100 tol=0.0001,
+adult,48842,13,2,logreg,logreg,gpu,kfold,10,0.851972,0.002226,0.782454,27.598,0.806,47.216,131.46,7.77,,,,80.8,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gain,dtree,cpu,kfold,10,0.757568,0.002951,0.608405,67.456,0.818,54.991,40.1,0.0,37725.1,25150.4,19.6,,,measure=gain max_bins=256,
+connect4,67557,42,3,dtree_gain,dtree,gpu,kfold,10,0.757568,0.002951,0.608405,19.829,0.903,64.97,147.15,21.38,37725.1,25150.4,19.6,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gain_pruned,dtree,cpu,kfold,10,0.780052,0.004423,0.598877,68.763,0.5,56.447,40.43,0.0,11112.4,7408.6,17.9,,,measure=gain max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gain_pruned,dtree,gpu,kfold,10,0.780052,0.004423,0.598877,21.488,0.718,65.639,147.02,21.38,11112.4,7408.6,17.9,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gain_ratio,dtree,cpu,kfold,10,0.790754,0.008149,0.648717,80.147,0.876,56.074,40.11,0.0,33978.1,22652.4,23.9,,,measure=gain_ratio max_bins=256,
+connect4,67557,42,3,dtree_gain_ratio,dtree,gpu,kfold,10,0.790754,0.008149,0.648717,22.473,0.839,65.769,147.25,20.76,33978.1,22652.4,23.9,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.808754,0.005968,0.646755,89.033,0.672,58.932,40.27,0.0,11146.6,7431.4,22.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.808754,0.005968,0.646755,27.479,0.993,73.085,146.99,20.76,11146.6,7431.4,22.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gini,dtree,cpu,kfold,10,0.771334,0.009138,0.623127,120.1,1.621,57.154,39.33,0.0,27630.4,13815.7,36.1,,,measure=gini max_bins=256,
+connect4,67557,42,3,dtree_gini,dtree,gpu,kfold,10,0.771334,0.009138,0.623127,29.889,1.278,67.704,145.29,17.95,27630.4,13815.7,36.1,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,dtree_gini_pruned,dtree,cpu,kfold,10,0.78661,0.006008,0.624995,118.364,1.24,56.341,39.58,0.0,13534,6767.5,32.9,,,measure=gini max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gini_pruned,dtree,gpu,kfold,10,0.78661,0.006008,0.624995,29.433,0.797,66.182,146.11,17.95,13534,6767.5,32.9,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,nbayes,nbayes,cpu,kfold,10,0.721509,0.00485,0.482619,3.546,0.704,57.846,33.67,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+connect4,67557,42,3,nbayes,nbayes,gpu,kfold,10,0.721509,0.00485,0.482619,3.905,0.711,66.866,141.6,9.98,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,knn,knn,cpu,kfold,10,0.809183,0.003051,0.575332,5.734,2604.305,57.458,53.79,0.0,,,,,,k=5,
+connect4,67557,42,3,knn,knn,gpu,kfold,10,0.809183,0.003051,0.575332,30.386,467.341,65.799,161.07,26.52,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+connect4,67557,42,3,logreg,logreg,cpu,kfold,10,0.757449,0.003734,0.500951,1506.226,2.388,56.573,51.3,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+connect4,67557,42,3,logreg,logreg,gpu,kfold,10,0.757804,0.003799,0.5014,88.37,1.825,65.445,171.12,31.59,,,,100,0,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gain,dtree,cpu,kfold,10,0.932583,0.001688,0.708053,372.084,2.993,703.241,247.43,0.0,102415,89134.9,32.1,,,measure=gain max_bins=256,
+census,299285,40,2,dtree_gain,dtree,gpu,kfold,10,0.932583,0.001688,0.708053,56.254,2.157,1118.934,341.09,73.21,102415,89134.9,32.1,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.94809,0.001675,0.705717,363.825,0.742,697.999,247.44,0.0,9718.4,8375.5,20.3,,,measure=gain max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.94809,0.001675,0.705717,54.438,1.485,1083.964,340.68,73.21,9718.4,8375.5,20.3,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.936923,0.001475,0.726731,489.613,4.001,746.356,247.43,0.0,109146,96926.6,39.8,,,measure=gain_ratio max_bins=256,
+census,299285,40,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.936923,0.001475,0.726731,67.997,2.113,1077.532,340.64,71.55,109146,96926.6,39.8,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.952985,0.001294,0.747432,488.853,1.105,690.369,247.43,0.0,8803.3,7637.2,29.6,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.952985,0.001294,0.747432,79.154,1.621,1279.861,341.07,71.55,8803.3,7637.2,29.6,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gini,dtree,cpu,kfold,10,0.934106,0.001566,0.721604,834.04,6.453,691.44,247.45,0.0,27517.6,13759.3,55,,,measure=gini max_bins=256,
+census,299285,40,2,dtree_gini,dtree,gpu,kfold,10,0.934106,0.001566,0.721604,103.973,1.569,1086.401,340.71,67.86,27517.6,13759.3,55,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.947896,0.001914,0.749154,848.753,2.121,697.631,247.45,0.0,8197.8,4099.4,40.5,,,measure=gini max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.947896,0.001914,0.749154,105.957,1.584,1072.252,340.65,67.86,8197.8,4099.4,40.5,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,nbayes,nbayes,cpu,kfold,10,0.855923,0.002027,0.669487,19.418,3.306,692.273,247.45,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+census,299285,40,2,nbayes,nbayes,gpu,kfold,10,0.855923,0.002027,0.669487,13.236,1.522,1100.019,341.04,42.41,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,knn,knn,cpu,holdout,1,0.943767,0.0,0.695153,26.99,80872.417,703.268,247.46,0.0,,,,,,k=5,
+census,299285,40,2,knn,knn,gpu,holdout,1,0.943767,0.0,0.695153,184.218,4368.325,1095.273,341.75,65.49,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,knn,knn,gpu,kfold,10,0.943248,0.001159,0.695127,185.309,4380.243,1083.493,341.04,65.49,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+census,299285,40,2,logreg,logreg,cpu,kfold,10,0.953088,0.001361,0.743726,5401.52,11.726,694.849,247.45,0.0,,,,92.9,0.6,C=1 max_iter=100 tol=0.0001,
+census,299285,40,2,logreg,logreg,gpu,kfold,10,0.953061,0.001338,0.743817,388.117,5.737,1075.419,348.42,131.35,,,,93.5,0.6,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gain,dtree,cpu,kfold,10,0.95254,0.00142,0.919495,668.514,4.824,637.752,115.14,0.0,44185.8,22191.2,32.2,,,measure=gain max_bins=256,
+covertype,581012,12,7,dtree_gain,dtree,gpu,kfold,10,0.95254,0.00142,0.919495,110.916,1.244,434.061,207.32,277.56,44185.8,22191.2,32.2,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gain_pruned,dtree,cpu,kfold,10,0.952683,0.001459,0.920763,666.036,4.819,639.586,115.82,0.0,34956.4,17574.8,32,,,measure=gain max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gain_pruned,dtree,gpu,kfold,10,0.952683,0.001459,0.920763,113.189,1.322,431.355,209.14,277.56,34956.4,17574.8,32,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gain_ratio,dtree,cpu,kfold,10,0.948714,0.001151,0.914706,718.197,6.26,662.735,116.3,0.0,50777.6,26913.3,47.2,,,measure=gain_ratio max_bins=256,
+covertype,581012,12,7,dtree_gain_ratio,dtree,gpu,kfold,10,0.948714,0.001151,0.914706,123.041,1.237,429.51,208.33,208.59,50777.6,26913.3,47.2,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.949161,0.000917,0.915999,738.015,6.322,640.527,115.84,0.0,39401.4,21082,44.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.949161,0.000917,0.915999,125.251,1.373,432.311,209.77,208.59,39401.4,21082,44.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gini,dtree,cpu,kfold,10,0.943149,0.001319,0.907559,858.392,8.053,636.768,114.25,0.0,54269.6,27135.3,37.4,,,measure=gini max_bins=256,
+covertype,581012,12,7,dtree_gini,dtree,gpu,kfold,10,0.943149,0.001319,0.907559,185.741,1.647,436.826,209.52,259.49,54269.6,27135.3,37.4,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,dtree_gini_pruned,dtree,cpu,kfold,10,0.944411,0.001257,0.909811,862.707,7.923,637.752,114.28,0.0,38824.2,19412.6,36.4,,,measure=gini max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gini_pruned,dtree,gpu,kfold,10,0.944411,0.001257,0.909811,188.347,1.57,440.259,210.18,259.49,38824.2,19412.6,36.4,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,nbayes,nbayes,cpu,kfold,10,0.656847,0.001766,0.525395,17.988,3.204,652.914,91.39,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+covertype,581012,12,7,nbayes,nbayes,gpu,kfold,10,0.656847,0.001766,0.525395,13.224,1.857,454.048,203.3,28.27,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,knn,knn,cpu,holdout,1,0.940053,0.0,0.896133,20.335,109218.788,671.933,128.14,0.0,,,,,,k=5,
+covertype,581012,12,7,knn,knn,gpu,holdout,1,0.940053,0.0,0.896133,70.776,2524.484,433.172,226.52,91.03,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,knn,knn,gpu,kfold,10,0.939304,0.001095,0.895589,69.942,2538.982,431.994,248.88,91.03,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+covertype,581012,12,7,logreg,logreg,cpu,kfold,10,0.724262,0.001624,0.52403,7679.878,4.787,646.349,139.3,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+covertype,581012,12,7,logreg,logreg,gpu,kfold,10,0.724193,0.001656,0.523934,869.636,4.238,435.408,273.19,107.26,,,,100,0,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gain,dtree,cpu,kfold,10,0.518383,0.002477,0.254622,1139.17,27.274,664.581,230.16,0.0,787157,480638,37.5,,,measure=gain max_bins=256,
+poker,1025010,10,10,dtree_gain,dtree,gpu,kfold,10,0.518383,0.002477,0.254622,185.905,5.276,430.352,335.46,379.91,787157,480638,37.5,,,measure=gain max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gain_pruned,dtree,cpu,kfold,10,0.567353,0.004868,0.207183,1225.308,20.206,643.609,229.26,0.0,249048,145804,35.7,,,measure=gain max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gain_pruned,dtree,gpu,kfold,10,0.567353,0.004868,0.207183,224.031,3.256,455.591,338.0,379.91,249048,145804,35.7,,,measure=gain max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gain_ratio,dtree,cpu,kfold,10,0.618235,0.006921,0.272261,1190.452,31.212,645.865,231.07,0.0,672892,418975,45.1,,,measure=gain_ratio max_bins=256,
+poker,1025010,10,10,dtree_gain_ratio,dtree,gpu,kfold,10,0.618235,0.006921,0.272261,179.336,4.957,438.158,331.41,239.5,672892,418975,45.1,,,measure=gain_ratio max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.654511,0.007052,0.263351,1209.635,24.936,641.683,229.68,0.0,238691,139534,44,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.654511,0.007052,0.263351,203.354,3.082,430.734,331.59,239.5,238691,139534,44,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gini,dtree,cpu,kfold,10,0.607268,0.005479,0.270066,1418.517,45.01,648.111,231.64,0.0,587318,293660,43.2,,,measure=gini max_bins=256,
+poker,1025010,10,10,dtree_gini,dtree,gpu,kfold,10,0.607268,0.005479,0.270066,199.303,4.698,444.773,320.75,296.82,587318,293660,43.2,,,measure=gini max_bins=256,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,dtree_gini_pruned,dtree,cpu,kfold,10,0.633048,0.005897,0.280465,1440.016,44.289,636.806,230.72,0.0,307288,153645,41.9,,,measure=gini max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gini_pruned,dtree,gpu,kfold,10,0.633048,0.005897,0.280465,222.838,3.369,429.361,328.31,296.82,307288,153645,41.9,,,measure=gini max_bins=256 prune_cf=0.25,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,nbayes,nbayes,cpu,kfold,10,0.501168,4e-06,0.06677,14.198,5.104,636.684,141.09,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+poker,1025010,10,10,nbayes,nbayes,gpu,kfold,10,0.501168,4e-06,0.06677,16.961,2.265,430.663,254.86,41.6,,,,,,alpha=1 var_smoothing=1e-09,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,knn,knn,cpu,holdout,1,0.535229,0.0,0.241022,31.933,159687.959,636.59,189.82,0.0,,,,,,k=5,
+poker,1025010,10,10,knn,knn,gpu,holdout,1,0.535229,0.0,0.241022,95.531,3312.423,427.596,286.09,117.58,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,knn,knn,gpu,kfold,10,0.533606,0.00168,0.216167,90.899,6343.085,437.806,321.62,117.62,,,,,,k=5,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"
+poker,1025010,10,10,logreg,logreg,cpu,kfold,10,0.501168,4e-06,0.06677,13205.253,8.203,642.205,211.61,0.0,,,,71.2,1,C=1 max_iter=100 tol=0.0001,
+poker,1025010,10,10,logreg,logreg,gpu,kfold,10,0.501168,4e-06,0.06677,1694.727,5.451,441.695,356.44,189.72,,,,71.6,1,C=1 max_iter=100 tol=0.0001,"NVIDIA GeForce RTX 3060 Ti (38 SMs, 8.0 GB, CC 8.6)"

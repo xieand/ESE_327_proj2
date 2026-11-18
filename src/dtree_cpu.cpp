@@ -24,18 +24,12 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
-#include <cstdlib>
-#include <exception>
-#include <memory>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
 #include "dataset.h"
 #include "dtree.h"
-#include "eval.h"
-#include "runner.h"
-#include "util.h"
+#include "dtree_app.h"
 
 namespace {
 
@@ -161,17 +155,8 @@ public:
     }
 
     std::string describe_split(int attr, const Candidate& c) const {
-        const Attribute& a = data_.attrs[attr];
-        if (c.kind == kMultiway) return "multiway";
-        if (c.kind == kThreshold) {
-            char buf[64];
-            std::snprintf(buf, sizeof(buf), "<= %.9g", static_cast<double>(binning_.threshold(attr, c.left_bin, c.right_bin)));
-            return buf;
-        }
-        std::string s;
-        for (int v = 0; v < a.num_values(); ++v)
-            if ((c.mask[v >> 6] >> (v & 63)) & 1u) s += (s.empty() ? "" : ", ") + a.values[v];
-        return "in {" + s + "}";
+        const float t = c.kind == kThreshold ? binning_.threshold(attr, c.left_bin, c.right_bin) : 0.0f;
+        return ml::describe_split(data_.attrs[attr], c.kind, t, c.mask.data());
     }
 
 private:
@@ -460,117 +445,13 @@ private:
     std::vector<uint32_t> offsets_, cursor_;
 };
 
-DecisionTree build_tree(const Dataset& train, const TreeOptions& opt, std::vector<AttrScore>* root_scores = nullptr) {
-    TreeBuilder builder(train, opt);
-    DecisionTree tree = builder.build(root_scores);
-    if (opt.prune_cf > 0) tree.prune(opt.prune_cf);
-    return tree;
-}
-
-class DecisionTreeCpu : public Classifier {
-public:
-    explicit DecisionTreeCpu(const TreeOptions& opt) : opt_(opt) {}
-    std::string name() const override { return std::string("dtree(") + measure_name(opt_.measure) + ")"; }
-    void fit(const Dataset& train) override { tree_ = build_tree(train, opt_); }
-    std::vector<int32_t> predict(const Dataset& test) override { return tree_.predict(test); }
-    std::vector<std::pair<std::string, double>> info() const override {
-        const TreeStats s = tree_.stats();
-        return {{"tree_nodes", static_cast<double>(s.nodes)},
-                {"tree_leaves", static_cast<double>(s.leaves)},
-                {"tree_depth", static_cast<double>(s.depth)}};
-    }
-
-private:
-    TreeOptions opt_;
-    DecisionTree tree_;
-};
-
-[[noreturn]] void usage(const char* prog, const std::string& problem = "") {
-    if (!problem.empty()) std::fprintf(stderr, "error: %s\n", problem.c_str());
-    std::fprintf(stderr,
-                 "usage: %s <table.csv> [options]\n"
-                 "  --measure M          gain (default), gain_ratio or gini\n"
-                 "  --max-depth D        stop splitting at depth D (default: no limit)\n"
-                 "  --min-split N        do not split nodes with fewer than N records (default 2)\n"
-                 "  --max-bins B         candidate thresholds per numeric attribute: one per distinct\n"
-                 "                       value up to B values, B equal-frequency bins beyond that\n"
-                 "                       (default 256; 0 = always one per distinct value)\n"
-                 "  --prune              pessimistic post-pruning with confidence 0.25\n"
-                 "  --prune-cf CF        pessimistic post-pruning with confidence CF\n"
-                 "  --print-tree         train on the whole table and print the tree\n"
-                 "  --scores             train on the whole table and print the score of every\n"
-                 "                       attribute's best split at the root\n"
-                 "%s",
-                 prog, run_options_help());
-    std::exit(2);
-}
-
-void print_scores(const Dataset& d, Measure measure, const std::vector<AttrScore>& scores) {
-    std::printf("root scores (%s)\n", measure_name(measure));
-    for (const AttrScore& s : scores) {
-        const char* name = d.attrs[s.attr].name.c_str();
-        if (!s.valid) std::printf("  %-28s cannot split\n", name);
-        else if (measure == Measure::Gini)
-            std::printf("  %-28s gini_split %.6f  reduction %.6f  %s\n", name, s.gini_split, s.gini_reduction,
-                        s.split.c_str());
-        else
-            std::printf("  %-28s gain %.6f  split_info %.6f  gain_ratio %.6f  %s\n", name, s.gain, s.split_info,
-                        s.gain_ratio, s.split.c_str());
-    }
-}
-
 }  // namespace
 
 int main(int argc, char** argv) {
-    TreeOptions tree_opt;
-    RunOptions run_opt;
-    bool print_tree = false, scores = false;
-    try {
-        Args args(argc, argv);
-        if (args.flag("-h") || args.flag("--help")) usage(argv[0]);
-        parse_run_options(args, run_opt);
-        std::string measure;
-        if (args.value("--measure", measure) && !parse_measure(measure, tree_opt.measure))
-            usage(argv[0], "unknown measure '" + measure + "'");
-        int min_split = 2;
-        args.value("--max-depth", tree_opt.max_depth);
-        args.value("--min-split", min_split);
-        args.value("--max-bins", tree_opt.max_bins);
-        if (args.flag("--prune")) tree_opt.prune_cf = 0.25;
-        args.value("--prune-cf", tree_opt.prune_cf);
-        print_tree = args.flag("--print-tree");
-        scores = args.flag("--scores");
-        if (tree_opt.max_depth < 0 || min_split < 1 || tree_opt.max_bins < 0 || tree_opt.prune_cf < 0 ||
-            tree_opt.prune_cf >= 1)
-            usage(argv[0], "option value out of range");
-        tree_opt.min_split = static_cast<uint32_t>(min_split);
-        if (args.rest().size() != 1 || args.rest()[0][0] == '-')
-            usage(argv[0], args.rest().empty() ? "no input table" : "unexpected argument '" + args.rest().back() + "'");
-        run_opt.input = args.rest()[0];
-    } catch (const std::invalid_argument& e) {
-        usage(argv[0], e.what());
-    }
-
-    try {
-        Timer timer;
-        Dataset data = load_table(run_opt.input);
-        RunInfo info;
-        info.algorithm = "dtree";
-        info.device = "cpu";
-        info.options = tree_opt.describe();
-        info.read_ms = timer.ms();
-
-        if (print_tree || scores) {
-            std::vector<AttrScore> root;
-            DecisionTree tree = build_tree(data, tree_opt, &root);
-            if (scores) print_scores(data, tree_opt.measure, root);
-            if (print_tree) tree.print(stdout, data);
-        }
-        run_evaluation(data, run_opt, info,
-                       [&] { return std::unique_ptr<Classifier>(new DecisionTreeCpu(tree_opt)); });
-    } catch (const std::exception& e) {
-        std::fprintf(stderr, "error: %s\n", e.what());
-        return 1;
-    }
-    return 0;
+    TreeBackend backend;
+    backend.build = [](const Dataset& train, const TreeOptions& opt, std::vector<AttrScore>* root_scores) {
+        return TreeBuilder(train, opt).build(root_scores);
+    };
+    backend.predict = [](const DecisionTree& tree, const Dataset& test) { return tree.predict(test); };
+    return dtree_main(argc, argv, backend);
 }

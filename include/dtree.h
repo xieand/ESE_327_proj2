@@ -74,6 +74,17 @@ struct Binning {
     std::vector<uint16_t> transform(const Dataset& data) const;
     // Threshold that separates bin `left` from the later bin `right`.
     float threshold(int attr, int left, int right) const;
+
+    // The steps of fit(), for a builder that sorts the columns itself (the
+    // GPU): init(), then set_numeric() for every numeric attribute.
+    void init(const Dataset& train);
+    // values[0 .. n_distinct): the distinct sort keys of the attribute in
+    // ascending order; counts: the records per value; n: all records.
+    void set_numeric(int attr, const float* values, const uint32_t* counts, size_t n_distinct, size_t n,
+                     int max_bins);
+    // Value a numeric cell is sorted and binned by: a missing value (NaN)
+    // sorts after every real value, and -0 is the same as 0.
+    static float sort_key(float v);
 };
 
 // -------------------------------------------------------------------- tree
@@ -135,5 +146,8 @@ struct AttrScore {
     double gini_split = 0, gini_reduction = 0;         // Gini index of the split, and its reduction
     std::string split;           // description of the split
 };
+
+// "multiway", "<= threshold" or "in {values}" (mask: bit set = value in the set).
+std::string describe_split(const Attribute& attr, uint8_t kind, float threshold, const uint64_t* mask);
 
 }  // namespace ml

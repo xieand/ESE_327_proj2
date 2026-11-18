@@ -125,23 +125,25 @@ EvalResult run_evaluation(const Dataset& data, const RunOptions& opt, const RunI
     const size_t k = r.folds.size();
     const double train_ms = k ? r.train_ms / k : 0, predict_ms = k ? r.predict_ms / k : 0;
     const double mb = 1024.0 * 1024.0;
-    const double host_mb = peak_host_memory_bytes() / mb, device_mb = info.peak_device_bytes / mb;
+    const double host_mb = peak_host_memory_bytes() / mb;
+    const double device_mb = (info.device.peak_bytes ? *info.device.peak_bytes : 0) / mb;
 
     if (opt.json) {
-        std::printf("{\"algorithm\":\"%s\",\"device\":\"%s\",\"options\":\"%s\",\"dataset\":\"%s\",\"records\":%zu,"
-                    "\"attributes\":%d,\"classes\":%d,\"split\":\"%s\",\"folds\":%zu,\"seed\":%llu,"
-                    "\"accuracy\":%.6f,\"accuracy_std\":%.6f,\"pooled_accuracy\":%.6f,\"macro_f1\":%.6f,"
+        std::printf("{\"algorithm\":\"%s\",\"device\":\"%s\",\"device_name\":\"%s\",\"options\":\"%s\","
+                    "\"dataset\":\"%s\",\"records\":%zu,\"attributes\":%d,\"classes\":%d,\"split\":\"%s\","
+                    "\"folds\":%zu,\"seed\":%llu,\"accuracy\":%.6f,\"accuracy_std\":%.6f,\"pooled_accuracy\":%.6f,\"macro_f1\":%.6f,"
                     "\"train_ms\":%.3f,\"predict_ms\":%.3f,\"read_ms\":%.3f,\"peak_host_mb\":%.2f,"
                     "\"peak_device_mb\":%.2f",
-                    json_escape(info.algorithm).c_str(), json_escape(info.device).c_str(),
-                    json_escape(info.options).c_str(), json_escape(data.name).c_str(), data.num_rows(),
-                    data.num_attrs(), n_classes, split_name.c_str(), k, static_cast<unsigned long long>(opt.seed),
-                    r.mean_accuracy, r.std_accuracy, r.pooled.accuracy(), r.pooled.macro_f1(), train_ms, predict_ms,
+                    json_escape(info.algorithm).c_str(), json_escape(info.device.id).c_str(),
+                    json_escape(info.device.name).c_str(), json_escape(info.options).c_str(),
+                    json_escape(data.name).c_str(), data.num_rows(), data.num_attrs(), n_classes, split_name.c_str(),
+                    k, static_cast<unsigned long long>(opt.seed), r.mean_accuracy, r.std_accuracy, r.pooled.accuracy(), r.pooled.macro_f1(), train_ms, predict_ms,
                     info.read_ms, host_mb, device_mb);
         for (const auto& kv : r.info) std::printf(",\"%s\":%.6g", json_escape(kv.first).c_str(), kv.second);
         std::printf("}\n");
     } else if (!opt.quiet) {
-        std::printf("== %s (%s) on %s\n", info.algorithm.c_str(), info.device.c_str(), opt.input.c_str());
+        std::printf("== %s (%s) on %s\n", info.algorithm.c_str(), info.device.id.c_str(), opt.input.c_str());
+        if (!info.device.name.empty()) std::printf("device           : %s\n", info.device.name.c_str());
         if (!info.options.empty()) std::printf("options          : %s\n", info.options.c_str());
         std::printf("records          : %zu  (%d numeric + %d categorical attributes, %d classes)\n", data.num_rows(),
                     data.num_numeric(), data.num_categorical(), n_classes);
@@ -161,7 +163,7 @@ EvalResult run_evaluation(const Dataset& data, const RunOptions& opt, const RunI
         std::printf("time train       : %10.3f ms  (mean per fold)\n", train_ms);
         std::printf("time predict     : %10.3f ms  (mean per fold)\n", predict_ms);
         std::printf("peak host memory : %10.2f MB\n", host_mb);
-        if (info.peak_device_bytes) std::printf("peak device mem  : %10.2f MB\n", device_mb);
+        if (info.device.peak_bytes) std::printf("peak device mem  : %10.2f MB\n", device_mb);
     }
     return r;
 }

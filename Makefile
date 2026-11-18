@@ -1,25 +1,45 @@
-# Targets
-#   make cpu   -> bin/dtree_cpu      decision tree induction (gain, gain ratio, Gini)
-#                 bin/nbayes_cpu     naive Bayes
-#                 bin/knn_cpu        k-nearest neighbors
-#                 bin/logreg_cpu     multinomial logistic regression
-#   make tools -> bin/dataset_info   schema / class / split report for a table
-#   make       -> everything that can be built on this machine
+# Four classifiers, each built three ways from one algorithm description:
 #
-# The CUDA / CUDA-emulation builds are added to this file as they are
-# implemented.
+#   make cpu   -> bin/<name>_cpu       sequential C++ (any C++17 compiler)
+#   make gpu   -> bin/<name>_gpu       CUDA (needs nvcc)
+#   make emu   -> bin/<name>_gpu_emu   the CUDA source compiled as plain C++
+#                                      (serial kernel emulation, for testing
+#                                      on machines without an NVIDIA GPU)
+#   make tools -> bin/dataset_info     schema / class / split report for a table
+#   make       -> cpu + emu + tools, plus gpu when nvcc is on the PATH
+#
+# <name> is dtree (decision tree induction: gain, gain ratio, Gini), nbayes
+# (naive Bayes), knn (k-nearest neighbors) or logreg (multinomial logistic
+# regression).
+#
+# Override e.g. CUDA_ARCH=-arch=sm_86 for a specific GPU (default: native).
+# On Windows nvcc needs the MSVC environment; use scripts/build_gpu.bat there.
 
-CXX      ?= g++
-CXXFLAGS ?= -O3 -std=c++17 -Wall -Wextra
+CXX       ?= g++
+NVCC      ?= nvcc
+CXXFLAGS  ?= -O3 -std=c++17 -Wall -Wextra
+CUDA_ARCH ?= -arch=native
+# --fmad=false: no fused multiply-add, so that the kernels round exactly like
+# the CPU code and both produce the same distances and scores.
+NVCCFLAGS ?= -O3 -std=c++17 $(CUDA_ARCH) --fmad=false
 
 INC        := -Iinclude
 BIN        := bin
 COMMON_SRC := src/dataset.cpp src/eval.cpp src/runner.cpp src/util.cpp
 COMMON     := $(COMMON_SRC) include/dataset.h include/eval.h include/runner.h include/util.h
-DTREE_SRC  := src/dtree.cpp
-DTREE      := $(DTREE_SRC) include/dtree.h
-ENCODE_SRC := src/encode.cpp
-ENCODE     := $(ENCODE_SRC) include/encode.h
+CUDA_H     := include/cuda_compat.h
+
+# Sources and headers of every program besides its own main file and COMMON.
+dtree_SRC  := src/dtree.cpp
+dtree_DEP  := include/dtree.h include/dtree_app.h
+nbayes_SRC :=
+nbayes_DEP := include/nbayes.h
+knn_SRC    := src/encode.cpp
+knn_DEP    := include/encode.h include/knn_app.h
+logreg_SRC := src/encode.cpp
+logreg_DEP := include/encode.h include/logreg.h include/lbfgs.h
+
+NAMES := dtree nbayes knn logreg
 
 ifeq ($(OS),Windows_NT)
   EXE := .exe
@@ -33,10 +53,21 @@ ifeq ($(OS),Windows_NT)
   LDFLAGS ?= -static
 endif
 
-.PHONY: all cpu tools clean
-all: cpu tools
+HAVE_NVCC := $(shell command -v $(NVCC) 2>/dev/null)
+ifeq ($(OS),Windows_NT)
+  # nvcc drives cl.exe on Windows; without the MSVC environment leave the
+  # CUDA build to scripts/build_gpu.bat.
+  ifeq ($(shell command -v cl 2>/dev/null),)
+    HAVE_NVCC :=
+  endif
+endif
 
-cpu: $(BIN)/dtree_cpu$(EXE) $(BIN)/nbayes_cpu$(EXE) $(BIN)/knn_cpu$(EXE) $(BIN)/logreg_cpu$(EXE)
+.PHONY: all cpu gpu emu tools clean
+all: cpu emu tools $(if $(HAVE_NVCC),gpu)
+
+cpu: $(foreach n,$(NAMES),$(BIN)/$(n)_cpu$(EXE))
+emu: $(foreach n,$(NAMES),$(BIN)/$(n)_gpu_emu$(EXE))
+gpu: $(foreach n,$(NAMES),$(BIN)/$(n)_gpu$(EXE))
 tools: $(BIN)/dataset_info$(EXE)
 
 $(BIN):
@@ -45,17 +76,17 @@ $(BIN):
 $(BIN)/dataset_info$(EXE): src/dataset_info.cpp $(COMMON) | $(BIN)
 	$(CXX) $(CXXFLAGS) $(INC) src/dataset_info.cpp $(COMMON_SRC) $(LDFLAGS) -o $@
 
-$(BIN)/dtree_cpu$(EXE): src/dtree_cpu.cpp $(DTREE) $(COMMON) | $(BIN)
-	$(CXX) $(CXXFLAGS) $(INC) src/dtree_cpu.cpp $(DTREE_SRC) $(COMMON_SRC) $(LDFLAGS) -o $@
+define PROGRAM
+$(BIN)/$(1)_cpu$(EXE): src/$(1)_cpu.cpp $$($(1)_SRC) $$($(1)_DEP) $(COMMON) | $(BIN)
+	$(CXX) $(CXXFLAGS) $(INC) src/$(1)_cpu.cpp $$($(1)_SRC) $(COMMON_SRC) $(LDFLAGS) -o $$@
 
-$(BIN)/nbayes_cpu$(EXE): src/nbayes_cpu.cpp $(COMMON) | $(BIN)
-	$(CXX) $(CXXFLAGS) $(INC) src/nbayes_cpu.cpp $(COMMON_SRC) $(LDFLAGS) -o $@
+$(BIN)/$(1)_gpu_emu$(EXE): src/$(1)_gpu_emu.cpp src/$(1)_gpu.cu $$($(1)_SRC) $$($(1)_DEP) $(CUDA_H) $(COMMON) | $(BIN)
+	$(CXX) $(CXXFLAGS) $(INC) src/$(1)_gpu_emu.cpp $$($(1)_SRC) $(COMMON_SRC) $(LDFLAGS) -o $$@
 
-$(BIN)/knn_cpu$(EXE): src/knn_cpu.cpp $(ENCODE) $(COMMON) | $(BIN)
-	$(CXX) $(CXXFLAGS) $(INC) src/knn_cpu.cpp $(ENCODE_SRC) $(COMMON_SRC) $(LDFLAGS) -o $@
-
-$(BIN)/logreg_cpu$(EXE): src/logreg_cpu.cpp include/lbfgs.h $(ENCODE) $(COMMON) | $(BIN)
-	$(CXX) $(CXXFLAGS) $(INC) src/logreg_cpu.cpp $(ENCODE_SRC) $(COMMON_SRC) $(LDFLAGS) -o $@
+$(BIN)/$(1)_gpu$(EXE): src/$(1)_gpu.cu $$($(1)_SRC) $$($(1)_DEP) $(CUDA_H) $(COMMON) | $(BIN)
+	$(NVCC) $(NVCCFLAGS) $(INC) src/$(1)_gpu.cu $$($(1)_SRC) $(COMMON_SRC) -o $$@
+endef
+$(foreach n,$(NAMES),$(eval $(call PROGRAM,$(n))))
 
 clean:
 	rm -rf $(BIN)

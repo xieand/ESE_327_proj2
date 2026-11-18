@@ -43,12 +43,18 @@ void parse_run_options(Args& args, RunOptions& opt);
 // Help text for the common options.
 const char* run_options_help();
 
+// Where a classifier runs.
+struct Device {
+    std::string id = "cpu";              // "cpu", "gpu" or "gpu_emu"
+    std::string name;                    // e.g. the GPU model; empty for the CPU
+    const size_t* peak_bytes = nullptr;  // peak device memory, read when the report is printed
+};
+
 struct RunInfo {
     std::string algorithm;       // e.g. "dtree"
-    std::string device;          // e.g. "cpu"
+    Device device;
     std::string options;         // classifier options, for the report
     double read_ms = 0;
-    size_t peak_device_bytes = 0;
 };
 
 // Builds the split named by the options, evaluates the classifier on it,

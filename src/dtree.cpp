@@ -42,53 +42,72 @@ namespace {
 
 constexpr int kMaxBinId = 65535;   // bins are stored as uint16_t
 
-// A missing numeric value sorts after every real value.
-inline float numeric_key(float v) { return std::isnan(v) ? std::numeric_limits<float>::infinity() : v; }
-
 }  // namespace
 
-void Binning::fit(const Dataset& train, int max_bins) {
+float Binning::sort_key(float v) { return std::isnan(v) ? std::numeric_limits<float>::infinity() : v + 0.0f; }
+
+void Binning::init(const Dataset& train) {
     const int d = train.num_attrs();
-    const size_t n = train.num_rows();
-    const int limit = max_bins <= 0 ? kMaxBinId : std::min(max_bins, kMaxBinId);
     n_bins.assign(d, 0);
     lo.assign(d, {});
     hi.assign(d, {});
     max_n_bins = 0;
-    std::vector<float> sorted;
     for (int a = 0; a < d; ++a) {
         const Attribute& attr = train.attrs[a];
-        if (!attr.numeric) {
-            if (attr.num_values() > kMaxBinId) throw std::runtime_error("too many values in attribute " + attr.name);
-            n_bins[a] = attr.num_values();
-        } else {
-            const float* col = train.column(a);
-            sorted.resize(n);
-            for (size_t i = 0; i < n; ++i) sorted[i] = numeric_key(col[i]);
-            std::sort(sorted.begin(), sorted.end());
-            size_t distinct = 0;
-            for (size_t i = 0; i < n; ++i) distinct += i == 0 || sorted[i] != sorted[i - 1];
-            // One bin per distinct value, or (too many values) the values are
-            // taken in order and bin k is closed once it holds the k-th of
-            // `limit` equal shares of the records.
-            const bool merge = distinct > static_cast<size_t>(limit);
-            uint64_t closed = 0;
-            size_t i = 0;
-            while (i < n) {
-                size_t j = i;
-                while (j < n && sorted[j] == sorted[i]) ++j;
-                if (lo[a].size() == closed) {      // first value of a new bin
-                    lo[a].push_back(sorted[i]);
-                    hi[a].push_back(sorted[i]);
-                } else {
-                    hi[a].back() = sorted[i];
-                }
-                if (!merge || static_cast<uint64_t>(j) * limit >= (closed + 1) * static_cast<uint64_t>(n)) ++closed;
-                i = j;
-            }
-            n_bins[a] = static_cast<int>(lo[a].size());
-        }
+        if (attr.numeric) continue;
+        if (attr.num_values() > kMaxBinId) throw std::runtime_error("too many values in attribute " + attr.name);
+        n_bins[a] = attr.num_values();
         max_n_bins = std::max(max_n_bins, n_bins[a]);
+    }
+}
+
+void Binning::set_numeric(int attr, const float* values, const uint32_t* counts, size_t n_distinct, size_t n,
+                          int max_bins) {
+    const int limit = max_bins <= 0 ? kMaxBinId : std::min(max_bins, kMaxBinId);
+    // One bin per distinct value, or (too many values) the values are taken
+    // in order and bin k is closed once it holds the k-th of `limit` equal
+    // shares of the records.
+    const bool merge = n_distinct > static_cast<size_t>(limit);
+    std::vector<float>& l = lo[attr];
+    std::vector<float>& h = hi[attr];
+    l.clear();
+    h.clear();
+    uint64_t closed = 0, seen = 0;
+    for (size_t i = 0; i < n_distinct; ++i) {
+        if (l.size() == closed) {      // first value of a new bin
+            l.push_back(values[i]);
+            h.push_back(values[i]);
+        } else {
+            h.back() = values[i];
+        }
+        seen += counts[i];
+        if (!merge || seen * limit >= (closed + 1) * static_cast<uint64_t>(n)) ++closed;
+    }
+    n_bins[attr] = static_cast<int>(l.size());
+    max_n_bins = std::max(max_n_bins, n_bins[attr]);
+}
+
+void Binning::fit(const Dataset& train, int max_bins) {
+    const size_t n = train.num_rows();
+    init(train);
+    std::vector<float> sorted, values;
+    std::vector<uint32_t> counts;
+    for (int a = 0; a < train.num_attrs(); ++a) {
+        if (!train.attrs[a].numeric) continue;
+        const float* col = train.column(a);
+        sorted.resize(n);
+        for (size_t i = 0; i < n; ++i) sorted[i] = sort_key(col[i]);
+        std::sort(sorted.begin(), sorted.end());
+        values.clear();
+        counts.clear();
+        for (size_t i = 0; i < n; ++i) {
+            if (i == 0 || sorted[i] != sorted[i - 1]) {
+                values.push_back(sorted[i]);
+                counts.push_back(0);
+            }
+            ++counts.back();
+        }
+        set_numeric(a, values.data(), counts.data(), values.size(), n, max_bins);
     }
 }
 
@@ -104,7 +123,7 @@ std::vector<uint16_t> Binning::transform(const Dataset& data) const {
         } else {
             const std::vector<float>& upper = hi[a];
             for (size_t i = 0; i < n; ++i) {
-                size_t b = std::lower_bound(upper.begin(), upper.end(), numeric_key(col[i])) - upper.begin();
+                size_t b = std::lower_bound(upper.begin(), upper.end(), sort_key(col[i])) - upper.begin();
                 out[i] = static_cast<uint16_t>(std::min(b, upper.size() - 1));
             }
         }
@@ -269,5 +288,18 @@ void print_node(const DecisionTree& t, const Dataset& schema, FILE* out, size_t 
 }  // namespace
 
 void DecisionTree::print(FILE* out, const Dataset& schema) const { print_node(*this, schema, out, 0, "", 0); }
+
+std::string describe_split(const Attribute& attr, uint8_t kind, float threshold, const uint64_t* mask) {
+    if (kind == kMultiway) return "multiway";
+    if (kind == kThreshold) {
+        char buf[64];
+        std::snprintf(buf, sizeof(buf), "<= %.9g", static_cast<double>(threshold));
+        return buf;
+    }
+    std::string s;
+    for (int v = 0; v < attr.num_values(); ++v)
+        if ((mask[v >> 6] >> (v & 63)) & 1u) s += (s.empty() ? "" : ", ") + attr.values[v];
+    return "in {" + s + "}";
+}
 
 }  // namespace ml

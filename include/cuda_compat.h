@@ -55,9 +55,22 @@ inline unsigned atomicAdd(unsigned* addr, unsigned v) {
 }
 #endif
 
+// Kernels are written as one loop over a flat index space: thread t of the
+// grid handles the indices t, t + (threads in the grid), ...
+#define GRID_STRIDE(i, n)                                                                        for (size_t i = blockIdx.x * static_cast<size_t>(blockDim.x) + threadIdx.x; i < (n);             i += static_cast<size_t>(blockDim.x) * gridDim.x)
+
 namespace gpu {
 
 constexpr unsigned kBlock = 256;
+
+// "gpu" for the CUDA build, "gpu_emu" for the serial emulation.
+inline const char* device_id() {
+#ifdef __CUDACC__
+    return "gpu";
+#else
+    return "gpu_emu";
+#endif
+}
 
 inline unsigned grid_for(size_t n) {
     size_t g = (n + kBlock - 1) / kBlock;
@@ -145,6 +158,18 @@ inline void fill_zero(void* dst, size_t bytes) {
 inline void synchronize() {
 #ifdef __CUDACC__
     CUDA_CHECK(cudaDeviceSynchronize());
+#endif
+}
+
+// Creates the CUDA context, so that its one-time cost is not charged to the
+// first timed operation.
+inline void warm_up() {
+#ifdef __CUDACC__
+    void* p = nullptr;
+    CUDA_CHECK(cudaMalloc(&p, 1 << 20));
+    CUDA_CHECK(cudaMemset(p, 0, 1 << 20));
+    CUDA_CHECK(cudaDeviceSynchronize());
+    CUDA_CHECK(cudaFree(p));
 #endif
 }
 
@@ -268,6 +293,67 @@ public:
         }
         std::copy(k.begin(), k.end(), keys_out);
         std::copy(v.begin(), v.end(), vals_out);
+#endif
+    }
+
+    // Sorts (key, value) pairs by the low end_bit bits of 32-bit keys (stable).
+    void sort_pairs(const uint32_t* keys_in, uint32_t* keys_out, const uint32_t* vals_in, uint32_t* vals_out, size_t n,
+                    int end_bit) {
+        if (n == 0) return;
+#ifdef __CUDACC__
+        size_t bytes = 0;
+        CUDA_CHECK(cub::DeviceRadixSort::SortPairs(nullptr, bytes, keys_in, keys_out, vals_in, vals_out, n, 0,
+                                                   end_bit));
+        temp_.reserve(bytes);
+        CUDA_CHECK(cub::DeviceRadixSort::SortPairs(temp_.get(), bytes, keys_in, keys_out, vals_in, vals_out, n, 0,
+                                                   end_bit));
+#else
+        (void)end_bit;
+        std::vector<uint32_t> idx(n);
+        std::iota(idx.begin(), idx.end(), 0u);
+        std::stable_sort(idx.begin(), idx.end(), [&](uint32_t a, uint32_t b) { return keys_in[a] < keys_in[b]; });
+        for (size_t i = 0; i < n; ++i) {
+            keys_out[i] = keys_in[idx[i]];
+            vals_out[i] = vals_in[idx[i]];
+        }
+#endif
+    }
+
+    // Sorts floats in ascending order.
+    void sort_keys(const float* in, float* out, size_t n) {
+        if (n == 0) return;
+#ifdef __CUDACC__
+        size_t bytes = 0;
+        CUDA_CHECK(cub::DeviceRadixSort::SortKeys(nullptr, bytes, in, out, n));
+        temp_.reserve(bytes);
+        CUDA_CHECK(cub::DeviceRadixSort::SortKeys(temp_.get(), bytes, in, out, n));
+#else
+        std::copy(in, in + n, out);
+        std::sort(out, out + n);
+#endif
+    }
+
+    // Distinct values of a sorted array and how often each occurs. Returns
+    // the number of distinct values.
+    size_t run_length_encode(const float* in, float* values, uint32_t* counts, size_t n) {
+        if (n == 0) return 0;
+#ifdef __CUDACC__
+        num_runs_.reserve(1);
+        size_t bytes = 0;
+        CUDA_CHECK(cub::DeviceRunLengthEncode::Encode(nullptr, bytes, in, values, counts, num_runs_.get(), n));
+        temp_.reserve(bytes);
+        CUDA_CHECK(cub::DeviceRunLengthEncode::Encode(temp_.get(), bytes, in, values, counts, num_runs_.get(), n));
+        return static_cast<size_t>(num_runs_.at(0));
+#else
+        size_t r = 0;
+        for (size_t i = 0; i < n; ++i) {
+            if (i == 0 || in[i] != in[i - 1]) {
+                values[r] = in[i];
+                counts[r++] = 0;
+            }
+            ++counts[r - 1];
+        }
+        return r;
 #endif
     }
 
