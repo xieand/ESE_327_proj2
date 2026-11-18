@@ -12,7 +12,7 @@
      cross-validation accuracy and tree size close to DecisionTreeClassifier
      (not identical: scikit-learn breaks ties between equally good splits at random).
 
-usage: python scripts/run_tests.py [--bin-dir bin] [--quick]
+usage: python scripts/test_dtree.py [--bin-dir bin] [--quick]
 Every binary found among dtree_cpu, dtree_gpu and dtree_gpu_emu is tested.
 """
 from __future__ import annotations

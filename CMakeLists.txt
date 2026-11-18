@@ -16,5 +16,13 @@ target_link_libraries(dataset_info PRIVATE ml_common)
 add_executable(dtree_cpu src/dtree_cpu.cpp src/dtree.cpp)
 target_link_libraries(dtree_cpu PRIVATE ml_common)
 
-# The other classifiers and the CUDA / CUDA-emulation builds are added here
-# as they are implemented.
+add_executable(nbayes_cpu src/nbayes_cpu.cpp)
+target_link_libraries(nbayes_cpu PRIVATE ml_common)
+
+add_executable(knn_cpu src/knn_cpu.cpp src/encode.cpp)
+target_link_libraries(knn_cpu PRIVATE ml_common)
+
+add_executable(logreg_cpu src/logreg_cpu.cpp src/encode.cpp)
+target_link_libraries(logreg_cpu PRIVATE ml_common)
+
+# The CUDA / CUDA-emulation builds are added here as they are implemented.
