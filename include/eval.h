@@ -6,6 +6,7 @@
 #include <functional>
 #include <memory>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "dataset.h"
@@ -56,6 +57,8 @@ public:
     virtual void fit(const Dataset& train) = 0;
     // Class id for every record of `test` (same schema as the training table).
     virtual std::vector<int32_t> predict(const Dataset& test) = 0;
+    // Model statistics worth reporting (e.g. tree nodes); averaged over folds.
+    virtual std::vector<std::pair<std::string, double>> info() const { return {}; }
 };
 
 // Predicts the most frequent training class (ties: lowest class id). The
@@ -86,6 +89,11 @@ struct EvalResult {
     double std_accuracy = 0;         // sample standard deviation over folds
     double train_ms = 0;             // summed over folds
     double predict_ms = 0;
+    // Predicted class of every record from the split that tested it
+    // (-1 for records no split tested).
+    std::vector<int32_t> predictions;
+    // Classifier::info() averaged over the folds.
+    std::vector<std::pair<std::string, double>> info;
 };
 
 using ClassifierFactory = std::function<std::unique_ptr<Classifier>()>;

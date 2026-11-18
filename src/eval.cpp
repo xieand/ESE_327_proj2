@@ -113,6 +113,7 @@ std::vector<int32_t> MajorityClassifier::predict(const Dataset& test) {
 
 EvalResult evaluate(const Dataset& data, const std::vector<Split>& splits, const ClassifierFactory& make) {
     EvalResult r;
+    r.predictions.assign(data.num_rows(), -1);
     for (const Split& s : splits) {
         Dataset train = take_rows(data, s.train);
         Dataset test = take_rows(data, s.test);
@@ -129,6 +130,12 @@ EvalResult evaluate(const Dataset& data, const std::vector<Split>& splits, const
         std::vector<int32_t> pred = clf->predict(test);
         f.predict_ms = t.ms();
         f.metrics = compute_metrics(test.y, pred, data.num_classes());
+        for (size_t i = 0; i < s.test.size(); ++i) r.predictions[s.test[i]] = pred[i];
+
+        auto info = clf->info();
+        if (r.info.empty()) r.info = info;
+        else
+            for (size_t i = 0; i < info.size() && i < r.info.size(); ++i) r.info[i].second += info[i].second;
 
         r.train_ms += f.train_ms;
         r.predict_ms += f.predict_ms;
@@ -138,6 +145,8 @@ EvalResult evaluate(const Dataset& data, const std::vector<Split>& splits, const
     const size_t k = r.folds.size();
     for (const auto& f : r.folds) r.mean_accuracy += f.metrics.accuracy();
     if (k) r.mean_accuracy /= k;
+    if (k)
+        for (auto& kv : r.info) kv.second /= k;
     if (k > 1) {
         double ss = 0;
         for (const auto& f : r.folds) ss += std::pow(f.metrics.accuracy() - r.mean_accuracy, 2);

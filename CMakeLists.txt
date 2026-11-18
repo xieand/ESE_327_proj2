@@ -7,11 +7,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_library(ml_common STATIC src/dataset.cpp src/eval.cpp src/util.cpp)
+add_library(ml_common STATIC src/dataset.cpp src/eval.cpp src/runner.cpp src/util.cpp)
 target_include_directories(ml_common PUBLIC include)
 
 add_executable(dataset_info src/dataset_info.cpp)
 target_link_libraries(dataset_info PRIVATE ml_common)
 
-# The classifiers (CPU, CUDA and CUDA-emulation builds) are added here as
-# they are implemented.
+add_executable(dtree_cpu src/dtree_cpu.cpp src/dtree.cpp)
+target_link_libraries(dtree_cpu PRIVATE ml_common)
+
+# The other classifiers and the CUDA / CUDA-emulation builds are added here
+# as they are implemented.

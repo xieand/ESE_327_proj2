@@ -1,0 +1,8 @@
+[age] n=14 {no:5, yes:9}
+  = youth: [student] n=5 {no:3, yes:2}
+    = no: leaf no n=3 {no:3, yes:0}
+    = yes: leaf yes n=2 {no:0, yes:2}
+  = middle_aged: leaf yes n=4 {no:0, yes:4}
+  = senior: [credit_rating] n=5 {no:2, yes:3}
+    = fair: leaf yes n=3 {no:0, yes:3}
+    = excellent: leaf no n=2 {no:2, yes:0}
