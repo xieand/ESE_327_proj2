@@ -1,0 +1,238 @@
+dataset,records,attributes,classes,config,algorithm,device,split,folds,accuracy,accuracy_std,macro_f1,train_ms,predict_ms,read_ms,peak_host_mb,peak_device_mb,tree_nodes,tree_leaves,tree_depth,iterations,converged,options,device_name
+votes,435,16,2,dtree_gain,dtree,cpu,kfold,10,0.931078,0.041697,0.928021,0.165,0.002,0.592,14.62,0.0,65.8,44.2,7.4,,,measure=gain max_bins=256,
+votes,435,16,2,dtree_gain,dtree,gpu,kfold,10,0.931078,0.041697,0.928021,3.963,1.022,0.647,93.41,0.04,65.8,44.2,7.4,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.942442,0.042516,0.940076,0.197,0.001,0.67,14.62,0.0,17.5,12,4.1,,,measure=gain max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.942442,0.042516,0.940076,4.293,0.619,0.715,93.19,0.04,17.5,12,4.1,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.942548,0.037934,0.939838,0.204,0.002,0.684,14.62,0.0,71.2,47.8,8.3,,,measure=gain_ratio max_bins=256,
+votes,435,16,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.942548,0.037934,0.939838,3.755,0.571,0.671,93.44,0.04,71.2,47.8,8.3,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.951638,0.038613,0.949664,0.18,0.001,0.601,14.62,0.0,18.4,12.6,4.2,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.951638,0.038613,0.949664,5.308,0.603,0.645,93.4,0.04,18.4,12.6,4.2,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,dtree_gini,dtree,cpu,kfold,10,0.942442,0.04258,0.939456,0.288,0.003,0.704,14.62,0.0,48.4,24.7,8.8,,,measure=gini max_bins=256,
+votes,435,16,2,dtree_gini,dtree,gpu,kfold,10,0.942442,0.04258,0.939456,4.792,0.669,0.658,93.52,0.04,48.4,24.7,8.8,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.949366,0.037448,0.947003,0.262,0.001,0.645,14.62,0.0,14.8,7.9,4.5,,,measure=gini max_bins=256 prune_cf=0.25,
+votes,435,16,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.949366,0.037448,0.947003,8.323,1.146,0.642,93.48,0.04,14.8,7.9,4.5,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,nbayes,nbayes,cpu,kfold,10,0.901216,0.041839,0.897321,0.024,0.005,0.696,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+votes,435,16,2,nbayes,nbayes,gpu,kfold,10,0.901216,0.041839,0.897321,0.981,0.686,0.663,92.98,0.03,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,knn,knn,cpu,kfold,10,0.924154,0.024494,0.9212,0.015,0.192,0.657,14.62,0.0,,,,,,k=5,
+votes,435,16,2,knn,knn,gpu,kfold,10,0.924154,0.024494,0.9212,0.433,1.98,0.63,92.83,0.03,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+votes,435,16,2,logreg,logreg,cpu,kfold,10,0.963214,0.024721,0.961294,2.657,0.008,0.714,14.62,0.0,,,,21.8,1,C=1 max_iter=100 tol=0.0001,
+votes,435,16,2,logreg,logreg,gpu,kfold,10,0.963214,0.024721,0.961294,5.248,0.605,0.643,93.24,0.08,,,,21.8,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gain,dtree,cpu,kfold,10,0.862182,0.022643,0.847232,0.427,0.007,0.848,14.62,0.0,335.2,223.8,7,,,measure=gain max_bins=256,
+tictactoe,958,9,2,dtree_gain,dtree,gpu,kfold,10,0.862182,0.022643,0.847232,3.913,0.532,0.751,93.49,0.1,335.2,223.8,7,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.856941,0.031457,0.838907,0.428,0.006,0.802,14.62,0.0,170.5,114,7,,,measure=gain max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.856941,0.031457,0.838907,3.985,0.535,0.768,93.5,0.1,170.5,114,7,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.869452,0.024205,0.855645,0.433,0.007,0.856,14.62,0.0,327.7,218.8,7,,,measure=gain_ratio max_bins=256,
+tictactoe,958,9,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.869452,0.024205,0.855645,4.652,0.564,0.752,93.49,0.1,327.7,218.8,7,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.856919,0.032737,0.83941,0.449,0.007,0.775,14.62,0.0,178.3,119.2,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.856919,0.032737,0.83941,4.019,0.541,0.786,93.34,0.1,178.3,119.2,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gini,dtree,cpu,kfold,10,0.942555,0.026746,0.936575,0.466,0.011,0.833,14.62,0.0,134.2,67.6,11.8,,,measure=gini max_bins=256,
+tictactoe,958,9,2,dtree_gini,dtree,gpu,kfold,10,0.942555,0.026746,0.936575,7.778,0.627,0.764,93.5,0.07,134.2,67.6,11.8,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.945702,0.025084,0.939731,0.506,0.011,0.917,14.62,0.0,89.6,45.3,8.1,,,measure=gini max_bins=256 prune_cf=0.25,
+tictactoe,958,9,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.945702,0.025084,0.939731,6.552,0.553,0.756,93.51,0.07,89.6,45.3,8.1,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,nbayes,nbayes,cpu,kfold,10,0.695077,0.05642,0.633147,0.043,0.007,0.88,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+tictactoe,958,9,2,nbayes,nbayes,gpu,kfold,10,0.695077,0.05642,0.633147,0.984,0.698,0.755,93.12,0.03,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,knn,knn,cpu,kfold,10,0.985395,0.011189,0.983702,0.019,0.551,0.741,14.62,0.0,,,,,,k=5,
+tictactoe,958,9,2,knn,knn,gpu,kfold,10,0.985395,0.011189,0.983702,0.435,1.388,0.732,93.07,0.04,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+tictactoe,958,9,2,logreg,logreg,cpu,kfold,10,0.983311,0.010048,0.981345,4.394,0.008,0.823,14.62,0.0,,,,23.6,1,C=1 max_iter=100 tol=0.0001,
+tictactoe,958,9,2,logreg,logreg,gpu,kfold,10,0.983311,0.010048,0.981345,5.998,0.576,0.742,93.24,0.11,,,,23.6,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gain,dtree,cpu,kfold,10,0.912226,0.016719,0.903352,5.876,0.023,14.613,14.62,0.0,657.7,520.3,8.7,,,measure=gain max_bins=256,
+splice,3190,60,3,dtree_gain,dtree,gpu,kfold,10,0.912226,0.016719,0.903352,6.439,0.606,13.584,95.2,1.04,657.7,520.3,8.7,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gain_pruned,dtree,cpu,kfold,10,0.936991,0.012836,0.93039,5.943,0.015,15.051,14.62,0.0,222.6,178.1,7.4,,,measure=gain max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gain_pruned,dtree,gpu,kfold,10,0.936991,0.012836,0.93039,5.795,0.573,13.512,95.16,1.04,222.6,178.1,7.4,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gain_ratio,dtree,cpu,kfold,10,0.917868,0.014081,0.910131,6.089,0.026,14.57,14.62,0.0,698.1,553.9,9.7,,,measure=gain_ratio max_bins=256,
+splice,3190,60,3,dtree_gain_ratio,dtree,gpu,kfold,10,0.917868,0.014081,0.910131,5.623,0.586,13.545,95.08,1.04,698.1,553.9,9.7,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.941066,0.010217,0.935013,6.11,0.017,14.422,14.62,0.0,285.2,228.1,8.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.941066,0.010217,0.935013,5.965,0.571,13.452,95.14,1.04,285.2,228.1,8.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gini,dtree,cpu,kfold,10,0.927586,0.010072,0.919287,9.816,0.042,14.803,14.62,0.0,251.4,126.2,12.1,,,measure=gini max_bins=256,
+splice,3190,60,3,dtree_gini,dtree,gpu,kfold,10,0.927586,0.010072,0.919287,10.228,0.665,13.53,95.1,1.04,251.4,126.2,12.1,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,dtree_gini_pruned,dtree,cpu,kfold,10,0.940439,0.010344,0.93286,9.853,0.03,14.741,14.62,0.0,147.6,74.3,11,,,measure=gini max_bins=256 prune_cf=0.25,
+splice,3190,60,3,dtree_gini_pruned,dtree,gpu,kfold,10,0.940439,0.010344,0.93286,9.174,0.646,13.561,95.21,1.04,147.6,74.3,11,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,nbayes,nbayes,cpu,kfold,10,0.953918,0.010964,0.949084,0.432,0.124,14.906,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+splice,3190,60,3,nbayes,nbayes,gpu,kfold,10,0.953918,0.010964,0.949084,1.213,0.785,13.335,94.84,0.67,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,knn,knn,cpu,kfold,10,0.797806,0.009139,0.798058,0.88,23.164,14.898,14.62,0.0,,,,,,k=5,
+splice,3190,60,3,knn,knn,gpu,kfold,10,0.797806,0.009139,0.798058,5.771,8.369,13.409,96.54,0.78,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+splice,3190,60,3,logreg,logreg,cpu,kfold,10,0.945768,0.008749,0.93951,121.947,0.207,14.806,14.62,0.0,,,,46.3,1,C=1 max_iter=100 tol=0.0001,
+splice,3190,60,3,logreg,logreg,gpu,kfold,10,0.945768,0.008749,0.93951,32.988,1.123,13.375,96.85,2.11,,,,46.3,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gain,dtree,cpu,kfold,10,0.997182,0.003115,0.997178,2.821,0.018,7.638,14.62,0.0,93.4,48.2,14.6,,,measure=gain max_bins=256,
+chess,3196,36,2,dtree_gain,dtree,gpu,kfold,10,0.997182,0.003115,0.997178,5.864,0.572,6.68,94.55,0.65,93.4,48.2,14.6,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.996244,0.003235,0.996238,2.828,0.016,7.549,14.62,0.0,63,33,13.2,,,measure=gain max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.996244,0.003235,0.996238,5.885,0.572,6.663,94.43,0.65,63,33,13.2,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.996868,0.003302,0.996864,3.012,0.019,7.399,14.62,0.0,90.6,46.8,15.6,,,measure=gain_ratio max_bins=256,
+chess,3196,36,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.996868,0.003302,0.996864,5.834,0.56,6.603,94.43,0.65,90.6,46.8,15.6,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.995931,0.003633,0.995925,3.016,0.018,7.664,14.62,0.0,59.4,31.2,13,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.995931,0.003633,0.995925,5.814,0.57,6.625,94.56,0.65,59.4,31.2,13,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gini,dtree,cpu,kfold,10,0.996555,0.003448,0.996551,3.303,0.029,7.004,14.62,0.0,101.4,51.2,14.6,,,measure=gini max_bins=256,
+chess,3196,36,2,dtree_gini,dtree,gpu,kfold,10,0.996555,0.003448,0.996551,7.264,0.588,6.532,94.59,0.65,101.4,51.2,14.6,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.994053,0.003751,0.994045,3.344,0.025,7.727,14.62,0.0,59,30,13,,,measure=gini max_bins=256 prune_cf=0.25,
+chess,3196,36,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.994053,0.003751,0.994045,7.339,0.591,6.682,94.48,0.65,59,30,13,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,nbayes,nbayes,cpu,kfold,10,0.877014,0.026853,0.876611,0.571,0.073,7.584,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+chess,3196,36,2,nbayes,nbayes,gpu,kfold,10,0.877014,0.026853,0.876611,1.072,0.717,6.559,94.04,0.41,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,knn,knn,cpu,kfold,10,0.962763,0.01186,0.9626,0.545,14.676,7.618,14.62,0.0,,,,,,k=5,
+chess,3196,36,2,knn,knn,gpu,kfold,10,0.962763,0.01186,0.9626,3.233,4.925,6.655,94.8,0.49,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+chess,3196,36,2,logreg,logreg,cpu,kfold,10,0.969342,0.00637,0.969286,76.594,0.116,7.63,14.62,0.0,,,,45,1,C=1 max_iter=100 tol=0.0001,
+chess,3196,36,2,logreg,logreg,gpu,kfold,10,0.969342,0.00637,0.969286,20.756,0.908,6.571,95.66,1.27,,,,45,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gain,dtree,cpu,kfold,10,1.0,0.0,1.0,1.646,0.016,13.489,14.62,0.0,38,33,4,,,measure=gain max_bins=256,
+mushroom,8124,22,2,dtree_gain,dtree,gpu,kfold,10,1.0,0.0,1.0,2.835,0.553,12.272,95.3,1.06,38,33,4,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gain_pruned,dtree,cpu,kfold,10,1.0,0.0,1.0,1.648,0.016,13.979,14.62,0.0,38,33,4,,,measure=gain max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gain_pruned,dtree,gpu,kfold,10,1.0,0.0,1.0,2.891,0.563,12.214,95.34,1.06,38,33,4,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gain_ratio,dtree,cpu,kfold,10,1.0,0.0,1.0,1.666,0.016,13.454,14.62,0.0,29,23.8,5,,,measure=gain_ratio max_bins=256,
+mushroom,8124,22,2,dtree_gain_ratio,dtree,gpu,kfold,10,1.0,0.0,1.0,2.781,0.564,12.292,95.25,1.06,29,23.8,5,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,1.0,0.0,1.0,1.671,0.016,13.383,14.62,0.0,29,23.8,5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,1.0,0.0,1.0,2.875,0.554,12.261,95.18,1.06,29,23.8,5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gini,dtree,cpu,kfold,10,1.0,0.0,1.0,4.081,0.046,13.445,14.62,0.0,18.8,9.9,7.9,,,measure=gini max_bins=256,
+mushroom,8124,22,2,dtree_gini,dtree,gpu,kfold,10,1.0,0.0,1.0,4.747,0.572,12.183,95.34,1.06,18.8,9.9,7.9,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.999631,0.000595,0.99963,4.083,0.043,13.612,14.62,0.0,17.6,9.3,7.3,,,measure=gini max_bins=256 prune_cf=0.25,
+mushroom,8124,22,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.999631,0.000595,0.99963,4.661,0.583,12.214,95.34,1.06,17.6,9.3,7.3,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,nbayes,nbayes,cpu,kfold,10,0.954578,0.006475,0.954317,0.644,0.116,13.511,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+mushroom,8124,22,2,nbayes,nbayes,gpu,kfold,10,0.954578,0.006475,0.954317,1.229,0.712,12.194,94.97,0.64,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,knn,knn,cpu,kfold,10,1.0,0.0,1.0,0.832,61.559,13.555,14.62,0.0,,,,,,k=5,
+mushroom,8124,22,2,knn,knn,gpu,kfold,10,1.0,0.0,1.0,4.885,12.247,12.223,96.3,0.95,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+mushroom,8124,22,2,logreg,logreg,cpu,kfold,10,1.0,0.0,1.0,57.235,0.212,12.957,14.62,0.0,,,,22,1,C=1 max_iter=100 tol=0.0001,
+mushroom,8124,22,2,logreg,logreg,gpu,kfold,10,1.0,0.0,1.0,13.245,1.304,12.303,97.27,2.05,,,,22,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gain,dtree,cpu,kfold,10,0.988503,0.003421,0.769693,2.644,0.077,14.763,14.62,0.0,1139.7,824.5,8,,,measure=gain max_bins=256,
+nursery,12960,8,5,dtree_gain,dtree,gpu,kfold,10,0.988503,0.003421,0.769693,5.363,0.584,13.595,95.34,0.81,1139.7,824.5,8,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gain_pruned,dtree,cpu,kfold,10,0.97037,0.0061,0.734225,2.703,0.066,15.288,14.62,0.0,507.5,356.3,7,,,measure=gain max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gain_pruned,dtree,gpu,kfold,10,0.97037,0.0061,0.734225,5.47,0.569,13.898,95.39,0.81,507.5,356.3,7,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gain_ratio,dtree,cpu,kfold,10,0.988426,0.002698,0.769645,2.663,0.074,15.13,14.62,0.0,1139.2,824.4,8,,,measure=gain_ratio max_bins=256,
+nursery,12960,8,5,dtree_gain_ratio,dtree,gpu,kfold,10,0.988426,0.002698,0.769645,5.391,0.557,13.708,95.39,0.81,1139.2,824.4,8,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.970756,0.006015,0.734464,2.725,0.066,15.314,14.62,0.0,506.4,355.5,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.970756,0.006015,0.734464,5.437,0.581,13.614,95.39,0.81,506.4,355.5,7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gini,dtree,cpu,kfold,10,0.998611,0.001079,0.998574,3.676,0.149,15.077,14.62,0.0,397,199,13.1,,,measure=gini max_bins=256,
+nursery,12960,8,5,dtree_gini,dtree,gpu,kfold,10,0.998611,0.001079,0.998574,8.456,0.613,13.861,95.34,0.76,397,199,13.1,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,dtree_gini_pruned,dtree,cpu,kfold,10,0.994985,0.001511,0.793839,3.714,0.144,15.273,14.62,0.0,324.6,162.8,12.9,,,measure=gini max_bins=256 prune_cf=0.25,
+nursery,12960,8,5,dtree_gini_pruned,dtree,gpu,kfold,10,0.994985,0.001511,0.793839,8.537,0.615,13.593,95.41,0.76,324.6,162.8,12.9,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,nbayes,nbayes,cpu,kfold,10,0.902006,0.006547,0.566178,0.28,0.1,15.264,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+nursery,12960,8,5,nbayes,nbayes,gpu,kfold,10,0.902006,0.006547,0.566178,1.041,0.707,13.55,94.83,0.4,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,knn,knn,cpu,kfold,10,0.980556,0.003466,0.707216,0.228,79.763,15.533,14.62,0.0,,,,,,k=5,
+nursery,12960,8,5,knn,knn,gpu,kfold,10,0.980556,0.003466,0.707216,2.416,12.412,13.769,95.49,1.04,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+nursery,12960,8,5,logreg,logreg,cpu,kfold,10,0.924846,0.003455,0.707431,314.523,0.137,15.465,14.62,0.0,,,,94.6,0.7,C=1 max_iter=100 tol=0.0001,
+nursery,12960,8,5,logreg,logreg,gpu,kfold,10,0.925077,0.00384,0.709145,67.615,1.078,13.765,95.5,1.67,,,,96.1,0.6,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gain,dtree,cpu,kfold,10,0.8816,0.009933,0.881378,58.282,0.417,37.931,14.62,0.0,3919.2,1960.1,19.6,,,measure=gain max_bins=256,
+letter,20000,16,26,dtree_gain,dtree,gpu,kfold,10,0.8816,0.009933,0.881378,30.949,0.922,36.205,98.66,11.73,3919.2,1960.1,19.6,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gain_pruned,dtree,cpu,kfold,10,0.8828,0.009172,0.882582,58.608,0.374,37.726,14.62,0.0,3550.4,1775.7,19,,,measure=gain max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gain_pruned,dtree,gpu,kfold,10,0.8828,0.009172,0.882582,29.912,0.792,36.158,99.08,11.73,3550.4,1775.7,19,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gain_ratio,dtree,cpu,kfold,10,0.8754,0.006535,0.874951,63.451,0.484,37.811,14.62,0.0,3977,1989,26.9,,,measure=gain_ratio max_bins=256,
+letter,20000,16,26,dtree_gain_ratio,dtree,gpu,kfold,10,0.8754,0.006535,0.874951,32.684,0.798,36.012,98.76,10.15,3977,1989,26.9,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.87655,0.005413,0.876068,63.745,0.452,38.092,14.62,0.0,3441.4,1721.2,26.3,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.87655,0.005413,0.876068,35.476,1.206,35.965,99.0,10.15,3441.4,1721.2,26.3,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gini,dtree,cpu,kfold,10,0.8768,0.008973,0.87658,65.847,0.487,38.151,14.62,0.0,4189.8,2095.4,28.9,,,measure=gini max_bins=256,
+letter,20000,16,26,dtree_gini,dtree,gpu,kfold,10,0.8768,0.008973,0.87658,40.288,1.25,36.104,99.0,9.69,4189.8,2095.4,28.9,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,dtree_gini_pruned,dtree,cpu,kfold,10,0.87695,0.009296,0.876779,66.224,0.463,38.159,14.62,0.0,3690.4,1845.7,28.3,,,measure=gini max_bins=256 prune_cf=0.25,
+letter,20000,16,26,dtree_gini_pruned,dtree,gpu,kfold,10,0.87695,0.009296,0.876779,40.994,0.971,36.024,99.53,9.69,3690.4,1845.7,28.3,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,nbayes,nbayes,cpu,kfold,10,0.64195,0.010281,0.637425,1.81,3.267,37.702,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+letter,20000,16,26,nbayes,nbayes,gpu,kfold,10,0.64195,0.010281,0.637425,3.213,1.637,36.417,97.81,1.63,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,knn,knn,cpu,kfold,10,0.9542,0.006647,0.954014,3.533,301.897,37.968,14.62,0.0,,,,,,k=5,
+letter,20000,16,26,knn,knn,gpu,kfold,10,0.95425,0.006969,0.954065,9.881,97.636,36.054,99.67,2.88,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+letter,20000,16,26,logreg,logreg,cpu,kfold,10,0.7731,0.008429,0.770767,1308.203,0.946,38.16,14.62,0.0,,,,57.8,1,C=1 max_iter=100 tol=0.0001,
+letter,20000,16,26,logreg,logreg,gpu,kfold,10,0.7731,0.008429,0.770767,354.541,1.705,35.903,100.37,7.32,,,,57.8,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gain,dtree,cpu,kfold,10,0.727901,0.008225,0.682303,25.077,0.554,19.761,14.62,0.0,19067.8,10068.2,16.5,,,measure=gain max_bins=256,
+krkopt,28056,6,18,dtree_gain,dtree,gpu,kfold,10,0.727901,0.008225,0.682303,21.811,0.863,18.344,101.42,9.08,19067.8,10068.2,16.5,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gain_pruned,dtree,cpu,kfold,10,0.714214,0.006888,0.672025,26.912,0.51,19.743,14.62,0.0,11987.2,6388.7,15.7,,,measure=gain max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gain_pruned,dtree,gpu,kfold,10,0.714214,0.006888,0.672025,22.276,1.325,18.416,101.57,9.08,11987.2,6388.7,15.7,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gain_ratio,dtree,cpu,kfold,10,0.727295,0.007361,0.680429,25.037,0.545,19.767,14.62,0.0,19117.2,10413.6,17.1,,,measure=gain_ratio max_bins=256,
+krkopt,28056,6,18,dtree_gain_ratio,dtree,gpu,kfold,10,0.727295,0.007361,0.680429,23.568,1.295,18.5,103.84,11.67,19117.2,10413.6,17.1,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.712254,0.006491,0.668452,27.042,0.513,19.777,14.62,0.0,11880,6576.2,15.4,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.712254,0.006491,0.668452,24.987,1.352,18.476,102.91,11.67,11880,6576.2,15.4,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gini,dtree,cpu,kfold,10,0.820288,0.009272,0.830587,34.045,0.84,19.908,14.62,0.0,13748.8,6874.9,22.3,,,measure=gini max_bins=256,
+krkopt,28056,6,18,dtree_gini,dtree,gpu,kfold,10,0.820288,0.009272,0.830587,58.863,1.054,18.489,99.82,6.88,13748.8,6874.9,22.3,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,dtree_gini_pruned,dtree,cpu,kfold,10,0.805638,0.00936,0.82295,35.058,0.775,19.898,14.62,0.0,8591.8,4296.4,20.9,,,measure=gini max_bins=256 prune_cf=0.25,
+krkopt,28056,6,18,dtree_gini_pruned,dtree,gpu,kfold,10,0.805638,0.00936,0.82295,60.271,1.267,18.437,100.53,6.88,8591.8,4296.4,20.9,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,nbayes,nbayes,cpu,kfold,10,0.246578,0.008264,0.24068,1.499,0.764,19.679,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+krkopt,28056,6,18,nbayes,nbayes,gpu,kfold,10,0.246578,0.008264,0.24068,2.625,0.922,18.27,96.66,0.76,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,knn,knn,cpu,kfold,10,0.576775,0.006233,0.491678,1.396,325.018,19.978,14.62,0.0,,,,,,k=5,
+krkopt,28056,6,18,knn,knn,gpu,kfold,10,0.576597,0.006063,0.491528,4.501,24.562,18.283,98.0,3.63,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+krkopt,28056,6,18,logreg,logreg,cpu,kfold,10,0.326846,0.006383,0.307125,1581.358,0.413,19.342,14.62,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+krkopt,28056,6,18,logreg,logreg,gpu,kfold,10,0.326846,0.006383,0.307125,345.355,1.399,18.454,98.11,5.6,,,,100,0,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gain,dtree,cpu,kfold,10,0.817411,0.006357,0.744008,72.683,1.26,88.238,14.99,0.0,24628.3,17593,33,,,measure=gain max_bins=256,
+adult,48842,13,2,dtree_gain,dtree,gpu,kfold,10,0.817411,0.006357,0.744008,35.773,1.096,86.737,104.21,9.26,24628.3,17593,33,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.850886,0.00449,0.779421,74.113,0.356,88.909,14.93,0.0,3819.3,2931.9,23.6,,,measure=gain max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.850886,0.00449,0.779421,36.034,1.334,86.143,104.22,9.26,3819.3,2931.9,23.6,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.82298,0.004018,0.753072,92.745,1.662,88.688,15.19,0.0,26437.9,19647,41.6,,,measure=gain_ratio max_bins=256,
+adult,48842,13,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.82298,0.004018,0.753072,43.901,1.225,87.719,103.89,7.41,26437.9,19647,41.6,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.857807,0.003107,0.792234,94.286,0.65,90.825,15.15,0.0,3079.2,2261.1,34.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.857807,0.003107,0.792234,44.518,1.396,87.123,104.41,7.41,3079.2,2261.1,34.5,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gini,dtree,cpu,kfold,10,0.821793,0.006187,0.752167,120.82,2.255,92.114,14.62,0.0,14923.4,7462.2,43.6,,,measure=gini max_bins=256,
+adult,48842,13,2,dtree_gini,dtree,gpu,kfold,10,0.821793,0.006187,0.752167,59.083,1.327,88.537,102.62,7.96,14923.4,7462.2,43.6,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.857745,0.004812,0.793725,122.116,0.828,91.904,14.62,0.0,2370.8,1185.9,34.7,,,measure=gini max_bins=256 prune_cf=0.25,
+adult,48842,13,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.857745,0.004812,0.793725,58.951,1.099,90.286,102.59,7.96,2370.8,1185.9,34.7,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,nbayes,nbayes,cpu,kfold,10,0.832132,0.005065,0.744137,3.428,0.489,93.17,14.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+adult,48842,13,2,nbayes,nbayes,gpu,kfold,10,0.832132,0.005065,0.744137,3.328,0.827,90.398,102.45,2.38,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,knn,knn,cpu,kfold,10,0.827996,0.003293,0.749215,2.815,1618.007,88.633,16.25,0.0,,,,,,k=5,
+adult,48842,13,2,knn,knn,gpu,kfold,10,0.827956,0.003269,0.749155,17.642,159.988,87.329,105.89,10.68,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+adult,48842,13,2,logreg,logreg,cpu,kfold,10,0.851972,0.002226,0.782454,876.238,0.805,90.454,15.55,0.0,,,,80.8,1,C=1 max_iter=100 tol=0.0001,
+adult,48842,13,2,logreg,logreg,gpu,kfold,10,0.851972,0.002226,0.782454,114.505,1.876,87.616,109.71,7.77,,,,80.8,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gain,dtree,cpu,kfold,10,0.757568,0.002951,0.608405,224.704,2.454,170.178,37.37,0.0,37725.1,25150.4,19.6,,,measure=gain max_bins=256,
+connect4,67557,42,3,dtree_gain,dtree,gpu,kfold,10,0.757568,0.002951,0.608405,54.218,2.359,164.729,147.5,21.38,37725.1,25150.4,19.6,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gain_pruned,dtree,cpu,kfold,10,0.780052,0.004423,0.598877,226.677,1.155,164.884,37.24,0.0,11112.4,7408.6,17.9,,,measure=gain max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gain_pruned,dtree,gpu,kfold,10,0.780052,0.004423,0.598877,58.526,1.844,160.13,147.64,21.38,11112.4,7408.6,17.9,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gain_ratio,dtree,cpu,kfold,10,0.790754,0.008149,0.648717,237.029,2.256,161.784,37.14,0.0,33978.1,22652.4,23.9,,,measure=gain_ratio max_bins=256,
+connect4,67557,42,3,dtree_gain_ratio,dtree,gpu,kfold,10,0.790754,0.008149,0.648717,59.149,2.498,159.523,123.79,20.76,33978.1,22652.4,23.9,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.808754,0.005968,0.646755,237.942,1.325,162.729,37.3,0.0,11146.6,7431.4,22.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.808754,0.005968,0.646755,58.888,1.906,159.88,123.8,20.76,11146.6,7431.4,22.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gini,dtree,cpu,kfold,10,0.771334,0.009138,0.623127,371.479,4.21,164.433,36.21,0.0,27630.4,13815.7,36.1,,,measure=gini max_bins=256,
+connect4,67557,42,3,dtree_gini,dtree,gpu,kfold,10,0.771334,0.009138,0.623127,78.725,2.561,159.312,123.82,17.95,27630.4,13815.7,36.1,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,dtree_gini_pruned,dtree,cpu,kfold,10,0.78661,0.006008,0.624995,371.197,3.281,163.671,36.38,0.0,13534,6767.5,32.9,,,measure=gini max_bins=256 prune_cf=0.25,
+connect4,67557,42,3,dtree_gini_pruned,dtree,gpu,kfold,10,0.78661,0.006008,0.624995,81.499,2.015,159.193,123.68,17.95,13534,6767.5,32.9,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,nbayes,nbayes,cpu,kfold,10,0.721509,0.00485,0.482619,10.178,2.061,163.523,34.62,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+connect4,67557,42,3,nbayes,nbayes,gpu,kfold,10,0.721509,0.00485,0.482619,7.58,1.851,157.851,123.52,9.98,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,knn,knn,cpu,kfold,10,0.809183,0.003051,0.575332,10.235,8710.996,164.825,53.85,0.0,,,,,,k=5,
+connect4,67557,42,3,knn,knn,gpu,kfold,10,0.809183,0.003051,0.575332,104.775,1727.473,159.726,152.75,26.52,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+connect4,67557,42,3,logreg,logreg,cpu,kfold,10,0.757582,0.003944,0.500982,4261.204,5.263,162.228,54.04,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+connect4,67557,42,3,logreg,logreg,gpu,kfold,10,0.75773,0.003933,0.501138,527.942,4.169,160.109,186.18,31.59,,,,100,0,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gain,dtree,cpu,kfold,10,0.932583,0.001688,0.708053,1652.244,8.99,1933.082,242.87,0.0,102415,89134.9,32.1,,,measure=gain max_bins=256,
+census,299285,40,2,dtree_gain,dtree,gpu,kfold,10,0.932583,0.001688,0.708053,170.526,5.304,1862.485,334.38,73.21,102415,89134.9,32.1,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gain_pruned,dtree,cpu,kfold,10,0.94809,0.001675,0.705717,1651.698,1.668,1860.565,242.75,0.0,9718.4,8375.5,20.3,,,measure=gain max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gain_pruned,dtree,gpu,kfold,10,0.94809,0.001675,0.705717,173.478,3.816,1837.546,334.25,73.21,9718.4,8375.5,20.3,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gain_ratio,dtree,cpu,kfold,10,0.936923,0.001475,0.726731,2036.378,11.542,1840.997,242.75,0.0,109146,96926.6,39.8,,,measure=gain_ratio max_bins=256,
+census,299285,40,2,dtree_gain_ratio,dtree,gpu,kfold,10,0.936923,0.001475,0.726731,220.849,5.294,1815.625,334.25,71.55,109146,96926.6,39.8,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.952985,0.001294,0.747432,1997.161,2.564,1816.908,242.75,0.0,8803.3,7637.2,29.6,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.952985,0.001294,0.747432,230.514,3.737,1814.572,334.12,71.55,8803.3,7637.2,29.6,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gini,dtree,cpu,kfold,10,0.934106,0.001566,0.721604,3468.59,18.224,1867.37,242.82,0.0,27517.6,13759.3,55,,,measure=gini max_bins=256,
+census,299285,40,2,dtree_gini,dtree,gpu,kfold,10,0.934106,0.001566,0.721604,364.436,3.639,1839.686,334.11,67.86,27517.6,13759.3,55,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,dtree_gini_pruned,dtree,cpu,kfold,10,0.947896,0.001914,0.749154,3456.868,6.154,1849.66,242.75,0.0,8197.8,4099.4,40.5,,,measure=gini max_bins=256 prune_cf=0.25,
+census,299285,40,2,dtree_gini_pruned,dtree,gpu,kfold,10,0.947896,0.001914,0.749154,363.159,3.425,1818.048,334.12,67.86,8197.8,4099.4,40.5,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,nbayes,nbayes,cpu,kfold,10,0.855923,0.002027,0.669487,58.601,9.479,1834.115,242.75,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+census,299285,40,2,nbayes,nbayes,gpu,kfold,10,0.855923,0.002027,0.669487,28.165,3.809,1848.439,334.28,42.41,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,knn,knn,cpu,holdout,1,0.943767,0.0,0.695153,56.555,185239.888,1839.318,242.62,0.0,,,,,,k=5,
+census,299285,40,2,knn,knn,gpu,holdout,1,0.943767,0.0,0.695153,426.085,37893.933,1821.159,334.15,65.49,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,knn,knn,gpu,kfold,10,0.943248,0.001159,0.695127,409.955,37900.21,1797.378,334.23,65.49,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+census,299285,40,2,logreg,logreg,cpu,kfold,10,0.953085,0.00136,0.743717,15349.58,28.665,1814.443,242.76,0.0,,,,92.9,0.6,C=1 max_iter=100 tol=0.0001,
+census,299285,40,2,logreg,logreg,gpu,kfold,10,0.953061,0.001338,0.7438,1785.934,10.675,1772.658,429.82,131.35,,,,93.5,0.6,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gain,dtree,cpu,kfold,10,0.95254,0.00142,0.919495,1756.723,13.254,937.827,115.81,0.0,44185.8,22191.2,32.2,,,measure=gain max_bins=256,
+covertype,581012,12,7,dtree_gain,dtree,gpu,kfold,10,0.95254,0.00142,0.919495,490.938,2.935,921.347,192.48,277.56,44185.8,22191.2,32.2,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gain_pruned,dtree,cpu,kfold,10,0.952683,0.001459,0.920763,1698.05,14.162,928.039,116.06,0.0,34956.4,17574.8,32,,,measure=gain max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gain_pruned,dtree,gpu,kfold,10,0.952683,0.001459,0.920763,523.418,2.853,924.472,331.18,277.56,34956.4,17574.8,32,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gain_ratio,dtree,cpu,kfold,10,0.948714,0.001151,0.914706,1893.912,16.83,927.845,117.71,0.0,50777.6,26913.3,47.2,,,measure=gain_ratio max_bins=256,
+covertype,581012,12,7,dtree_gain_ratio,dtree,gpu,kfold,10,0.948714,0.001151,0.914706,608.863,2.881,927.075,189.6,208.59,50777.6,26913.3,47.2,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.949161,0.000917,0.915999,1956.075,18.874,919.491,117.22,0.0,39401.4,21082,44.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.949161,0.000917,0.915999,635.118,2.935,924.835,186.5,208.59,39401.4,21082,44.7,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gini,dtree,cpu,kfold,10,0.943149,0.001319,0.907559,2398.859,21.231,926.758,112.7,0.0,54269.6,27135.3,37.4,,,measure=gini max_bins=256,
+covertype,581012,12,7,dtree_gini,dtree,gpu,kfold,10,0.943149,0.001319,0.907559,743.314,3.187,922.123,286.97,259.49,54269.6,27135.3,37.4,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,dtree_gini_pruned,dtree,cpu,kfold,10,0.944411,0.001257,0.909811,2378.786,21.378,933.928,112.69,0.0,38824.2,19412.6,36.4,,,measure=gini max_bins=256 prune_cf=0.25,
+covertype,581012,12,7,dtree_gini_pruned,dtree,gpu,kfold,10,0.944411,0.001257,0.909811,781.291,2.612,922.88,192.75,259.49,38824.2,19412.6,36.4,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,nbayes,nbayes,cpu,kfold,10,0.656847,0.001766,0.525395,66.485,18.131,934.803,90.89,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+covertype,581012,12,7,nbayes,nbayes,gpu,kfold,10,0.656847,0.001766,0.525395,36.711,7.296,919.66,183.76,28.27,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,knn,knn,cpu,holdout,1,0.940053,0.0,0.896133,56.921,264287.45,924.647,129.87,0.0,,,,,,k=5,
+covertype,581012,12,7,knn,knn,gpu,holdout,1,0.940053,0.0,0.896133,192.237,23249.594,920.123,311.23,91.03,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,knn,knn,gpu,kfold,10,0.939304,0.001095,0.895589,197.756,23181.178,922.026,318.99,91.03,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+covertype,581012,12,7,logreg,logreg,cpu,kfold,10,0.724262,0.001624,0.52403,21608.062,13.782,927.583,138.71,0.0,,,,100,0,C=1 max_iter=100 tol=0.0001,
+covertype,581012,12,7,logreg,logreg,gpu,kfold,10,0.724193,0.001653,0.523945,3846.473,13.784,918.951,251.08,107.26,,,,100,0,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gain,dtree,cpu,kfold,10,0.518383,0.002477,0.254622,3879.276,98.887,1053.546,279.91,0.0,787157,480638,37.5,,,measure=gain max_bins=256,
+poker,1025010,10,10,dtree_gain,dtree,gpu,kfold,10,0.518383,0.002477,0.254622,708.44,11.871,1051.229,750.6,379.91,787157,480638,37.5,,,measure=gain max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gain_pruned,dtree,cpu,kfold,10,0.567353,0.004868,0.207183,3949.58,64.681,1041.737,281.09,0.0,249048,145804,35.7,,,measure=gain max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gain_pruned,dtree,gpu,kfold,10,0.567353,0.004868,0.207183,769.099,6.025,1053.807,748.16,379.91,249048,145804,35.7,,,measure=gain max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gain_ratio,dtree,cpu,kfold,10,0.618235,0.006921,0.272261,4130.723,95.239,1039.734,270.73,0.0,672892,418975,45.1,,,measure=gain_ratio max_bins=256,
+poker,1025010,10,10,dtree_gain_ratio,dtree,gpu,kfold,10,0.618235,0.006921,0.272261,742.317,17.802,1052.441,599.5,239.5,672892,418975,45.1,,,measure=gain_ratio max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gain_ratio_pruned,dtree,cpu,kfold,10,0.654511,0.007052,0.263351,4175.659,76.289,1042.214,272.32,0.0,238691,139534,44,,,measure=gain_ratio max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gain_ratio_pruned,dtree,gpu,kfold,10,0.654511,0.007052,0.263351,799.567,9.468,1057.726,600.66,239.5,238691,139534,44,,,measure=gain_ratio max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gini,dtree,cpu,kfold,10,0.607268,0.005479,0.270066,4703.382,137.016,1040.954,262.19,0.0,587318,293660,43.2,,,measure=gini max_bins=256,
+poker,1025010,10,10,dtree_gini,dtree,gpu,kfold,10,0.607268,0.005479,0.270066,880.321,11.353,1059.542,574.23,296.82,587318,293660,43.2,,,measure=gini max_bins=256,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,dtree_gini_pruned,dtree,cpu,kfold,10,0.633048,0.005897,0.280465,4769.524,141.101,1045.469,262.82,0.0,307288,153645,41.9,,,measure=gini max_bins=256 prune_cf=0.25,
+poker,1025010,10,10,dtree_gini_pruned,dtree,gpu,kfold,10,0.633048,0.005897,0.280465,1024.398,11.659,1049.824,587.98,296.82,307288,153645,41.9,,,measure=gini max_bins=256 prune_cf=0.25,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,nbayes,nbayes,cpu,kfold,10,0.501168,4e-06,0.06677,45.143,22.305,1056.273,145.3,0.0,,,,,,alpha=1 var_smoothing=1e-09,
+poker,1025010,10,10,nbayes,nbayes,gpu,kfold,10,0.501168,4e-06,0.06677,56.566,10.229,1056.964,238.11,41.6,,,,,,alpha=1 var_smoothing=1e-09,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,knn,knn,cpu,holdout,1,0.535736,0.0,0.241029,59.027,410312.211,1049.136,196.24,0.0,,,,,,k=5,
+poker,1025010,10,10,knn,knn,gpu,holdout,1,0.535229,0.0,0.241022,254.086,26251.469,1050.013,283.96,117.58,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,knn,knn,gpu,kfold,10,0.533606,0.00168,0.216167,241.331,49041.816,1065.385,362.61,117.62,,,,,,k=5,"Orin (8 SMs, 7.4 GB, CC 8.7)"
+poker,1025010,10,10,logreg,logreg,cpu,kfold,10,0.501168,4e-06,0.06677,30788.271,22.317,1043.945,225.94,0.0,,,,71.2,1,C=1 max_iter=100 tol=0.0001,
+poker,1025010,10,10,logreg,logreg,gpu,kfold,10,0.501168,4e-06,0.06677,7378.996,13.532,1047.4,538.44,189.72,,,,71.6,1,C=1 max_iter=100 tol=0.0001,"Orin (8 SMs, 7.4 GB, CC 8.7)"
